@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Swapnanagar — Charity School Platform",
+    "summary": "Swapnanagar.org is a content-driven platform for sharing local stories and community-focused information, with built-in donation management and activity tracking. It emphasizes responsive design, performance optimization, SEO-friendly architecture, and scalable, maintainable development using modern web technologies.",
+    "tags": ["React", "Bootstrap", "Strapi", "PayPal", "MongoDB"],
+    "link": "https://www.swapnanagar.org/"
+  },
+  {
+    "title": "FootyLight Soccer Highlights",
+    "summary": "A mobile application serving global football fans with match highlights, goals, live updates, news, and personalized content—optimized for speed and engagement across iOS and Android.",
+    "tags": ["React Native", "Node.js", "AWS", "Microservices", "Mobile App"],
+    "link": "https://apps.apple.com/us/app/footylight-soccer-highlights/id549404480"
+  },
+  {
+    "title": "Hyperledger Fabric Management System",
+    "summary": "Backend enhancements for Docker-based network management to simplify user interactions.",
+    "tags": ["Docker", "Hyperledger Fabric", "Backend"],
+    "link": "https://github.com/Mahmud-007/HyperledgerFabric-Management-System"
+  }
+]

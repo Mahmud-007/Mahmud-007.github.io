@@ -1,0 +1,37 @@
+{
+    "Backend": [
+        "Node.js",
+        "Express.js",
+        "Python (Django)",
+        "PHP (Laravel)",
+        "REST",
+        "GraphQL",
+        "Microservices"
+    ],
+    "Cloud & DevOps": [
+        "AWS (Lambda, ECS, S3, DynamoDB, CloudFront, API Gateway, EC2)",
+        "Docker",
+        "CI/CD (GitHub Actions)",
+        "ELK Stack"
+    ],
+    "Database & Tools": [
+        "MongoDB",
+        "MySQL",
+        "Firebase",
+        "Git",
+        "Google Analytics",
+        "GPT"
+    ],
+    "Frontend": [
+        "React",
+        "Next.js",
+        "React Native",
+        "Redux",
+        "TypeScript",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Tailwind",
+        "Material-UI"
+    ]
+}

@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Designing Serverless Search Pipeline with DynamoDB, SQS, Lambda & OpenSearch/Elasticsearch",
+        "summary": "A practical breakdown of how to build a scalable, low-latency serverless search pipeline using DynamoDB streams, SQS buffering, AWS Lambda processors, and OpenSearch for indexing high-volume data in real time.",
+        "tags": ["AWS", "Serverless", "DynamoDB", "SQS", "Lambda", "OpenSearch", "Search Architecture", "Scalability"],
+        "link": "https://medium.com/@mahmud6799"
+    },
+    {
+        "title": "How Billions of Username Lookups Have Handled",
+        "summary": "An exploration of the engineering strategies behind efficiently handling billions of username lookups, including indexing techniques, caching, sharding, and system-level optimizations for high-traffic applications.",
+        "tags": ["Scalability", "High Performance", "Distributed Systems", "Caching", "Database Indexing", "Backend Architecture"],
+        "link": "https://dev.to/mahmud007/how-billions-of-username-lookups-have-handled-3imb"
+    },
+    {
+        "title": "Goodbye asyncHandler: Native Async Support in Express 5",
+        "summary": "A quick guide to Express 5’s native async/await support and how it eliminates the need for wrappers like asyncHandler, simplifying error handling and modernizing Express-based applications.",
+        "tags": ["Express", "Node.js", "Backend Development", "JavaScript", "Async/Await", "Error Handling"],
+        "link": "https://dev.to/mahmud007/goodbye-asynchandler-native-async-support-in-express-5-2o9p"
+    }
+]

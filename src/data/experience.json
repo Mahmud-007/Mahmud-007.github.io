@@ -1,0 +1,27 @@
+[
+  {
+    "company": "Footylight (FCONNECT)",
+    "role": "Software Engineer",
+    "period": "Apr 2022 – Present",
+    "type": "Remote",
+    "tags": ["Node.js", "React Native", "AWS", "Microservices", "ELK", "Data Pipelines"],
+    "highlights": [
+      { "title": "Footylight App", "desc": "Served football game content, achieving 32.4% MoM active user improvement using React Native and 4 microservices optimized for performance, cost, and high traffic." },
+      { "title": "FConnect Widget", "desc": "Worked on 26+ publishers’ APIs and 5 microservices using Elasticsearch, Node.js, and JS; performance optimization and 20%+ improvement in some metrics." },
+      { "title": "Data Pipeline Development", "desc": "10+ data parsers with ELK, Docker, AWS ECS and Lambda, daily parsing." },
+      { "title": "Master Dashboard", "desc": "Internal monitoring dashboard for widgets, parsers, APIs, ads, and cost – used by multiple departments." },
+      { "title": "Widget Builder", "desc": "No-code widget generator with Next.js on AWS Amplify + S3." },
+      { "title": "First-Party Data", "desc": "System for user behavior tracking integrated with Google Analytics and cost management." }
+    ]
+  },
+  {
+    "company": "InfancyIT",
+    "role": "Trainee Software Engineer",
+    "period": "Oct 2020 – Dec 2020",
+    "type": "Remote",
+    "tags": ["PHP", "SQL", "MySQL"],
+    "highlights": [
+      { "title": "Inquiry System", "desc": "Worked on an inquiry system using PHP, SQL, and MySQL to improve data retrieval efficiency." }
+    ]
+  }
+]

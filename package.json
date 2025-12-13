@@ -1,0 +1,41 @@
+{
+    "name": "mahmud-portfolio",
+    "version": "1.0.0",
+    "main": "index.js",
+    "homepage": "https://Mahmud-007.github.io",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "develop": "gatsby develop",
+        "build": "gatsby build",
+        "serve": "gatsby serve",
+        "deploy": "gatsby build && gh-pages -d public"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@fontsource/inter": "^5.2.8",
+        "@fontsource/roboto-mono": "^5.2.8",
+        "@tailwindcss/postcss": "^4.1.17",
+        "autoprefixer": "^10.4.22",
+        "clsx": "^2.1.1",
+        "framer-motion": "^12.23.25",
+        "gatsby": "^5.15.0",
+        "gatsby-plugin-image": "^3.15.0",
+        "gatsby-plugin-manifest": "^5.15.0",
+        "gatsby-plugin-postcss": "^6.15.0",
+        "gatsby-plugin-sharp": "^5.15.0",
+        "gatsby-source-filesystem": "^5.15.0",
+        "gatsby-transformer-sharp": "^5.15.0",
+        "postcss": "^8.5.6",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-icons": "^5.5.0",
+        "tailwind-merge": "^3.4.0",
+        "tailwindcss": "^4.1.17"
+    },
+    "devDependencies": {
+        "gh-pages": "^6.3.0"
+    }
+}
