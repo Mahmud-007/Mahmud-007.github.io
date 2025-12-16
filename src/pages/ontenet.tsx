@@ -5,7 +5,7 @@ const OntenetPage = () => {
     return (
         <main style={{ minHeight: "100vh", background: "#05070a", color: "white", fontFamily: "sans-serif" }}>
             <header style={{ padding: "20px 40px", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-                <h1 style={{ margin: 0, fontSize: "1.5rem" }}>Antigravity 3D Skills</h1>
+                {/* <h1 style={{ margin: 0, fontSize: "1.5rem" }}>Antigravity 3D Skills</h1> */}
             </header>
 
             <div style={{ maxWidth: 1200, margin: "40px auto", padding: "0 20px" }}>
