@@ -162,7 +162,7 @@ const SkillsGlobe3D: React.FC = () => {
             {/* 3D Scene */}
             <div
                 style={{
-                    borderRadius: 18,
+                    // borderRadius: 18,
                     overflow: "hidden",
                     border: "1px solid rgba(255,255,255,0.08)",
                     background: "radial-gradient(circle at 30% 20%, #1b2a4a, #070a12)",

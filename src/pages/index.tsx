@@ -9,20 +9,22 @@ import Skills from "../components/Skills"
 import Blog from "../components/Blog"
 import Speaking from "../components/Speaking"
 import Contact from "../components/Contact"
+import SkillsGlobe3D from "../components/SkillsGlobe3D"
 
 const IndexPage: React.FC<PageProps> = () => {
-  return (
-    <Layout>
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Blog />
-      <Speaking />
-      <Contact />
-    </Layout>
-  )
+    return (
+        <Layout>
+            <Hero />
+            <About />
+            <Experience />
+            <Projects />
+            <Skills />
+            <SkillsGlobe3D />
+            <Blog />
+            <Speaking />
+            <Contact />
+        </Layout>
+    )
 }
 
 export default IndexPage
