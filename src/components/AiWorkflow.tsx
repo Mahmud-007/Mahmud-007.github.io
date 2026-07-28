@@ -6,7 +6,7 @@ const uses = [
   'evaluate architecture & implementation options',
 ];
 
-const tools = ['Claude Code', 'Cursor', 'Codex', 'OpenCode'];
+const tools = ['Claude Code', 'Antigravity', 'Cursor', 'Codex', 'OpenCode'];
 
 const AiWorkflow = () => {
   return (

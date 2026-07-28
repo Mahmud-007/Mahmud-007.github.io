@@ -12,7 +12,7 @@ interface Certification {
 
 const Certifications = () => {
   return (
-    <section id="certs" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="certifications" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-slate-lightest mb-12 flex items-center">
           <span className="text-teal font-mono mr-2">// certifications</span>
