@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Building with the Claude API",
+        "issuer": "Anthropic",
+        "issued": "Jun 2026",
+        "credentialId": "dak2cdqi5wto",
+        "skills": ["Model Context Protocol (MCP)", "Anthropic Claude"],
+        "link": ""
+    },
+    {
+        "title": "AI Evals For Everyone",
+        "issuer": "LevelUp Labs",
+        "issued": "Jul 2026",
+        "credentialId": "2LALOO-CE000961",
+        "skills": ["AI Evals", "AI Agents"],
+        "link": ""
+    },
+    {
+        "title": "RAG & MCP Fundamentals: A Hands-On Crash Course",
+        "issuer": "FreeCodeCamp · KodeKloud",
+        "issued": "May 2026",
+        "credentialId": "b68cc13e-f3bc-4830-9d9e-a59d7252b826",
+        "skills": ["Retrieval-Augmented Generation (RAG)", "Model Context Protocol (MCP)"],
+        "link": ""
+    }
+]

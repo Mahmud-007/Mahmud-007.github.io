@@ -3,25 +3,27 @@
     "company": "Footylight (FCONNECT)",
     "role": "Software Engineer",
     "period": "Apr 2022 – Present",
-    "type": "Remote",
-    "tags": ["Node.js", "React Native", "AWS", "Microservices", "ELK", "Data Pipelines"],
+    "type": "Hybrid",
+    "tags": ["Node.js", "Python", "AWS", "Microservices", "Event-Driven", "ELK", "OpenSearch", "DynamoDB"],
     "highlights": [
-      { "title": "Footylight App", "desc": "Served football game content, achieving 32.4% MoM active user improvement using React Native and 4 microservices optimized for performance, cost, and high traffic." },
-      { "title": "FConnect Widget", "desc": "Worked on 26+ publishers’ APIs and 5 microservices using Elasticsearch, Node.js, and JS; performance optimization and 20%+ improvement in some metrics." },
-      { "title": "Data Pipeline Development", "desc": "10+ data parsers with ELK, Docker, AWS ECS and Lambda, daily parsing." },
-      { "title": "Master Dashboard", "desc": "Internal monitoring dashboard for widgets, parsers, APIs, ads, and cost – used by multiple departments." },
-      { "title": "Widget Builder", "desc": "No-code widget generator with Next.js on AWS Amplify + S3." },
-      { "title": "First-Party Data", "desc": "System for user behavior tracking integrated with Google Analytics and cost management." }
+      { "title": "Storylens — event-driven AI backend", "metric": "70% cache hit · 300%+ ROI", "desc": "Transformed articles into visual summaries through an event-driven LLM pipeline; semantic prompt caching drove sub-second p50 responses.", "context": "Bottleneck: every article re-ran the full LLM pipeline. Trade-off: accepted eventual staleness for latency and cost." },
+      { "title": "High-throughput microservices", "metric": "32.4% MAU growth", "desc": "Operated 4 core microservices serving low-latency football content to high-concurrency global traffic under strict production SLAs.", "context": "Owned uptime and latency, not just endpoints." },
+      { "title": "Data-pipeline fault tolerance", "metric": "0 dropped feeds", "desc": "Architected 10 data parsers on the ELK stack across AWS ECS and Lambda.", "context": "Peak-event bursts dropped feeds; async queuing + exponential backoff eliminated the loss." },
+      { "title": "Publisher API integration", "metric": "26+ publishers", "desc": "Managed distributed API integrations and high-volume widget delivery; presented the in-image widget architecture at DMEXCO.", "context": "Multi-tenant integration across international publishers." },
+      { "title": "Banglapapers semantic search", "metric": "<100ms retrieval", "desc": "Architected an AI news platform aggregating 10+ publisher feeds with OpenSearch semantic indexing.", "context": "Tuned indexing for sub-100ms query latency." },
+      { "title": "SocialDesk automation", "metric": "0 dev cycle", "desc": "Engineered an automated content-processing and image-generation pipeline via direct article scraping and workflow execution.", "context": "Removed manual developer cycles from content prep." },
+      { "title": "Widget Builder (internal ops)", "metric": "30m → <2m", "desc": "Built an internal widget-generation engine so non-engineers ship production-ready widgets.", "context": "Cut a repetitive 30-minute manual workflow to under two minutes." },
+      { "title": "Observability dashboard", "metric": "7 core metrics", "desc": "Developed central monitoring aggregating API health, ad delivery, cost insights, and daily operational reports.", "context": "Used logs and metrics to diagnose production behavior." }
     ]
   },
   {
     "company": "InfancyIT",
     "role": "Trainee Software Engineer",
     "period": "Oct 2020 – Dec 2020",
-    "type": "Remote",
+    "type": "On-site",
     "tags": ["PHP", "SQL", "MySQL"],
     "highlights": [
-      { "title": "Inquiry System", "desc": "Worked on an inquiry system using PHP, SQL, and MySQL to improve data retrieval efficiency." }
+      { "title": "Inquiry System", "desc": "Designed optimized SQL queries across business units and built reporting structures under custom relational schemas." }
     ]
   }
 ]

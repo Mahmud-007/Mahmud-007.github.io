@@ -1,20 +1,27 @@
 [
   {
-    "title": "Swapnanagar — Charity School Platform",
-    "summary": "Swapnanagar.org is a content-driven platform for sharing local stories and community-focused information, with built-in donation management and activity tracking. It emphasizes responsive design, performance optimization, SEO-friendly architecture, and scalable, maintainable development using modern web technologies.",
-    "tags": ["React", "Bootstrap", "Strapi", "PayPal", "MongoDB"],
+    "title": "Adaptive Restaurant Forecasting Engine",
+    "summary": "An AI-driven POC forecasting demand, staffing, and inventory with feedback loops for continuously improving model accuracy.",
+    "tags": ["FastAPI", "Python", "LightGBM", "SGDRegressor", "Streamlit", "React"],
+    "link": "https://github.com/Mahmud-007",
+    "metric": "Self-learning POC"
+  },
+  {
+    "title": "Swapnanagar — Charity Platform",
+    "summary": "A content-driven donation platform with campaign handling and PayPal-based payment flow, built with Figma MCP and a Strapi CMS; SEO-friendly and performance-optimized.",
+    "tags": ["React", "Strapi", "PayPal", "MongoDB", "Node.js"],
     "link": "https://www.swapnanagar.org/"
   },
   {
     "title": "FootyLight Soccer Highlights",
-    "summary": "A mobile application serving global football fans with match highlights, goals, live updates, news, and personalized content—optimized for speed and engagement across iOS and Android.",
-    "tags": ["React Native", "Node.js", "AWS", "Microservices", "Mobile App"],
+    "summary": "A mobile app serving global football fans with highlights, live updates, and personalized content across iOS and Android, backed by 4 microservices.",
+    "tags": ["React Native", "Node.js", "AWS", "Microservices"],
     "link": "https://apps.apple.com/us/app/footylight-soccer-highlights/id549404480"
   },
   {
     "title": "Hyperledger Fabric Management System",
-    "summary": "Backend enhancements for Docker-based network management to simplify user interactions.",
-    "tags": ["Docker", "Hyperledger Fabric", "Backend"],
+    "summary": "A management interface for Hyperledger Fabric that removes CLI complexity for Docker-based network operations.",
+    "tags": ["Hyperledger Fabric", "Docker", "Node.js"],
     "link": "https://github.com/Mahmud-007/HyperledgerFabric-Management-System"
   }
 ]

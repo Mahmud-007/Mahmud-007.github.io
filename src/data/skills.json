@@ -1,36 +1,50 @@
 {
-    "Backend": [
+    "Backend & Distributed Systems": [
         "Node.js",
         "Express.js",
-        "Python (Django)",
-        "PHP (Laravel)",
+        "FastAPI",
+        "Python",
+        "Go",
+        "Microservices",
+        "Event-Driven Architecture",
+        "Caching",
+        "Fault Tolerance",
         "REST",
-        "GraphQL",
-        "Microservices"
+        "GraphQL"
     ],
-    "Cloud & DevOps": [
-        "AWS (Lambda, ECS, S3, DynamoDB, CloudFront, API Gateway, EC2)",
+    "Cloud, DevOps & Observability": [
+        "AWS (Lambda, ECS, S3, API Gateway, Route53, CloudFront)",
         "Docker",
         "CI/CD (GitHub Actions)",
         "ELK Stack"
     ],
-    "Database & Tools": [
+    "Databases & Data Stores": [
+        "DynamoDB",
         "MongoDB",
         "MySQL",
-        "Firebase",
-        "Git",
-        "Google Analytics",
-        "GPT"
+        "PostgreSQL",
+        "Redis",
+        "OpenSearch",
+        "Pinecone",
+        "Firebase"
+    ],
+    "AI Tools & Workflows": [
+        "Claude Code",
+        "Antigravity",
+        "Cursor",
+        "Codex",
+        "OpenCode",
+        "LangChain",
+        "RAG",
+        "MCP"
     ],
     "Frontend": [
         "React",
         "Next.js",
         "React Native",
-        "Redux",
         "TypeScript",
         "JavaScript",
-        "HTML",
-        "CSS",
+        "Redux",
         "Tailwind",
         "Material-UI"
     ]

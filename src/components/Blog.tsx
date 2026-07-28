@@ -13,7 +13,7 @@ const Blog = () => {
     <section id="blog" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-slate-lightest mb-12 flex items-center">
-          <span className="text-teal mr-2">Articles & Writing</span>
+          <span className="text-teal font-mono mr-2">// writing</span>
           <span className="h-px bg-slate-700 flex-grow ml-4 max-w-xs"></span>
         </h2>
         <div className="grid md:grid-cols-2 gap-8">

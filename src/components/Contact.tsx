@@ -4,7 +4,7 @@ const Contact = () => {
     return (
         <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 text-center">
             <div className="max-w-2xl mx-auto">
-                <p className="text-teal font-mono mb-4">What's Next?</p>
+                <p className="text-teal font-mono mb-4"><span className="text-status-green">$</span> ./get-in-touch</p>
                 <h2 className="text-4xl sm:text-5xl font-bold text-slate-lightest mb-6">Get In Touch</h2>
                 <p className="text-slate-light text-lg mb-12 leading-relaxed">
                     I’m based in Bangladesh and appreciate meaningful conversations around engineering, systems, and strategy. If my experience beyond typical SDE work resonates with you, I’m always open to a dialogue.        </p>
@@ -31,6 +31,9 @@ const Contact = () => {
                         </a>
                         <a href="https://www.instagram.com/__mahmud_007__/" target="_blank" rel="noreferrer" className="text-slate-light hover:text-teal transition-colors duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@mahmudurrahman8104" target="_blank" rel="noreferrer" aria-label="YouTube" className="text-slate-light hover:text-teal transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                         </a>
                     </div>
                     <div className="text-slate-light text-sm font-mono space-y-2">
