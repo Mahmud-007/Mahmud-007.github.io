@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmahmud_portfolio=self.webpackChunkmahmud_portfolio||[]).push([[222],{1240:function(e,t,l){l.r(t),l.d(t,{Head:function(){return o}});var n=l(6540),u=l(4399),a=l(9977);t.default=()=>n.createElement(u.A,null,n.createElement(a.A,null));const o=()=>n.createElement("title",null,"Mahmudur Rahman | Portfolio")}}]);
+//# sourceMappingURL=component---src-pages-ontenet-tsx-c3d033ca3ae931b5594e.js.map
