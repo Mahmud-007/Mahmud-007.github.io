@@ -21,6 +21,12 @@ module.exports = {
         },
         orange: {
           soft: '#ffaf7b',
+        },
+        status: {
+          green: '#3fb950',
+        },
+        content: {
+          surface: '#0e1f3a',
         }
       },
       fontFamily: {
