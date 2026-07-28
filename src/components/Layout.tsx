@@ -14,26 +14,26 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         <div className="flex-shrink-0">
                             <Link to="/" className="text-teal font-mono font-bold text-2xl hover:text-teal/80 transition-colors">MR</Link>
                         </div>
-                        <div className="hidden md:block">
-                            <div className="ml-10 flex items-baseline space-x-6">
-                                {['About', 'Experience', 'Projects', 'Skills', 'Certifications', 'AI', 'Blog', 'Contact'].map((item) => (
-                                    <Link
-                                        key={item}
-                                        to={`#${item.toLowerCase()}`}
-                                        className="text-slate-light hover:text-teal px-3 py-2 rounded-md text-sm font-mono font-medium transition-colors duration-300"
-                                    >
-                                        {item}
-                                    </Link>
-                                ))}
-                                <a
-                                    href="/Mahmudur_Rahman.pdf"
-                                    rel="noopener noreferrer"
-                                    target='_blank'
-                                    className="border border-teal text-teal hover:bg-teal/10 px-4 py-2 rounded-md text-sm font-mono font-medium transition-colors duration-300 ml-4"
+                        <div className="hidden md:flex flex-1 justify-center items-baseline space-x-6">
+                            {['About', 'Experience', 'Projects', 'Skills', 'Certifications', 'AI', 'Blog', 'Contact'].map((item) => (
+                                <Link
+                                    key={item}
+                                    to={`#${item.toLowerCase()}`}
+                                    className="text-slate-light hover:text-teal px-3 py-2 rounded-md text-sm font-mono font-medium transition-colors duration-300"
                                 >
-                                    Resume
-                                </a>
-                            </div>
+                                    {item}
+                                </Link>
+                            ))}
+                        </div>
+                        <div className="hidden md:block flex-shrink-0">
+                            <a
+                                href="/Mahmudur_Rahman.pdf"
+                                rel="noopener noreferrer"
+                                target='_blank'
+                                className="border border-teal text-teal hover:bg-teal/10 px-4 py-2 rounded-md text-sm font-mono font-medium transition-colors duration-300"
+                            >
+                                Resume
+                            </a>
                         </div>
                     </div>
                 </div>

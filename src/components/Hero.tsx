@@ -9,17 +9,17 @@ const metrics = [
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <section id="home" className="min-h-[calc(100vh-5rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
       <div className="max-w-4xl w-full mx-auto">
         <div className="rounded-xl border border-navy-700 bg-navy-800/60 shadow-2xl overflow-hidden font-mono">
           <div className="flex items-center gap-2 px-4 py-3 border-b border-navy-700 bg-navy-900/70">
             <span className="w-3 h-3 rounded-full bg-red-400/70"></span>
             <span className="w-3 h-3 rounded-full bg-yellow-400/70"></span>
             <span className="w-3 h-3 rounded-full bg-status-green/80"></span>
-            <span className="ml-3 text-xs text-slate-light">mahmud@fconnect: ~/production</span>
+            <span className="ml-3 text-xs text-slate-light">mahmud: ~/production</span>
           </div>
 
-          <div className="p-6 sm:p-10 text-sm sm:text-base leading-relaxed">
+          <div className="p-5 sm:p-10 text-sm sm:text-base leading-relaxed">
             <p className="text-slate-light">
               <span className="text-status-green">$</span> whoami
             </p>
@@ -30,7 +30,7 @@ const Hero = () => {
               Software Engineer — I own systems in production, not just features.
             </p>
 
-            <p className="text-slate-light mt-6">
+            <p className="text-slate-light mt-4 sm:mt-6">
               <span className="text-status-green">$</span> systemctl status --user impact
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-3">
@@ -42,16 +42,16 @@ const Hero = () => {
               ))}
             </div>
 
-            <p className="text-slate-light mt-6">
+            <p className="hidden sm:block text-slate-light mt-4 sm:mt-6">
               <span className="text-status-green">$</span> cat ./intro.txt
             </p>
-            <p className="text-slate-light font-sans max-w-2xl mt-2 leading-relaxed">
+            <p className="hidden sm:block text-slate-light font-sans max-w-2xl mt-2 leading-relaxed">
               Backend-focused full-stack engineer. I design, deploy, monitor, and keep services
               stable under real production traffic — distributed systems, fault tolerance, and
               measurable performance and cost wins, with AI tools to move faster without outsourcing reasoning.
             </p>
 
-            <div className="flex flex-wrap gap-4 mt-8 font-sans">
+            <div className="flex flex-wrap gap-4 mt-5 sm:mt-8 font-sans">
               <a
                 href="https://github.com/Mahmud-007"
                 target="_blank"
@@ -68,7 +68,7 @@ const Hero = () => {
               </a>
             </div>
 
-            <p className="text-slate-light mt-8">
+            <p className="text-slate-light mt-5 sm:mt-8">
               <span className="text-status-green">$</span> cat ./case-studies/ <span className="cursor-blink">▊</span>
             </p>
           </div>

@@ -31,7 +31,7 @@ const Experience = () => {
             <div key={index}>
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
                 <h3 className="text-xl font-bold text-slate-lightest">
-                  {job.role} <span className="text-teal">@ {job.company}</span>
+                  {job.role} <span className="text-teal">@{job.company}</span>
                 </h3>
                 <span className="text-sm font-mono text-slate-light">{job.period} · {job.type}</span>
               </div>
