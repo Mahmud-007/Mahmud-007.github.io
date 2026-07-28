@@ -19,18 +19,15 @@ No test suite or linter configured.
 
 ## Architecture
 
-**Gatsby static site** — single-page portfolio with section-based components. Two pages exist:
+**Gatsby static site** — single-page portfolio with section-based components. One page:
 
-- `src/pages/index.tsx` — Main portfolio (Hero, About, Experience, Projects, Skills, SkillsGlobe3D, Blog, Speaking, Contact)
-- `src/pages/ontenet.tsx` — Standalone page showcasing SkillsGlobe3D in isolation
+- `src/pages/index.tsx` — Main portfolio (Hero, About, Experience, Projects, Skills, AiWorkflow, Blog, Speaking, Contact)
 
 **Component pattern**: Each section is a standalone component in `src/components/`. Data-driven sections pull from JSON files in `src/data/`.
 
 **Data files** (`src/data/`):
 - `experience.json`, `projects.json`, `articles.json` — Structured content arrays
-- `skills.json` — Category-keyed skill map (used by both Skills and SkillsGlobe3D)
-
-**SkillsGlobe3D** (`src/components/SkillsGlobe3D.tsx`): Interactive 3D skills visualization using `@react-three/fiber` and `@react-three/drei`. Uses `isBrowser` check for Gatsby SSR compatibility. Renders orbiting category spheres on a torus ring with click-to-select detail sidebar.
+- `skills.json` — Category-keyed skill map (used by the Skills section)
 
 **Layout** (`src/components/Layout.tsx`): Wraps all pages. Fixed nav with section anchor links + resume PDF link (`/Mahmudur_Rahman.pdf` in `static/`). Footer.
 
@@ -51,7 +48,6 @@ No test suite or linter configured.
 ## Key Dependencies
 
 - `framer-motion` — Animations
-- `@react-three/fiber` + `@react-three/drei` — 3D rendering (SkillsGlobe3D)
 - `react-icons` — Icon library
 - `clsx` + `tailwind-merge` — Conditional class utilities
 - `gatsby-plugin-image` + `gatsby-plugin-sharp` — Optimized images via `<StaticImage>`
