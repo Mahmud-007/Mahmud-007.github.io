@@ -4,7 +4,7 @@ const Contact = () => {
     return (
         <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 text-center">
             <div className="max-w-2xl mx-auto">
-                <p className="text-teal font-mono mb-4">What's Next?</p>
+                <p className="text-teal font-mono mb-4"><span className="text-status-green">$</span> ./get-in-touch</p>
                 <h2 className="text-4xl sm:text-5xl font-bold text-slate-lightest mb-6">Get In Touch</h2>
                 <p className="text-slate-light text-lg mb-12 leading-relaxed">
                     I’m based in Bangladesh and appreciate meaningful conversations around engineering, systems, and strategy. If my experience beyond typical SDE work resonates with you, I’m always open to a dialogue.        </p>

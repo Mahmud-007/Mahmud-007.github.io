@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         </div>
                         <div className="hidden md:block">
                             <div className="ml-10 flex items-baseline space-x-6">
-                                {['About', 'Experience', 'Projects', 'Skills', 'Blog', 'Contact'].map((item) => (
+                                {['About', 'Experience', 'Projects', 'Skills', 'AI', 'Blog', 'Contact'].map((item) => (
                                     <Link
                                         key={item}
                                         to={`#${item.toLowerCase()}`}
