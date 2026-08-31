@@ -61,10 +61,10 @@ const Hero = () => {
 
           <div className="flex flex-wrap gap-4 mt-5 sm:mt-8 font-sans">
             <a
-              href="#work"
+              href="#contact"
               className="px-6 py-3 bg-teal text-navy-900 rounded border border-teal hover:bg-teal/80 transition-colors duration-300 font-bold text-sm"
             >
-              See how I decide
+              Let's Work Together
             </a>
             <a
               href="#contact"

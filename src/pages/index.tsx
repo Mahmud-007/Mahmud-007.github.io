@@ -7,7 +7,7 @@ import Experience from "../components/sections/Experience"
 import Work from "../components/sections/Work"
 import Skills from "../components/sections/Skills"
 import Certifications from "../components/sections/Certifications"
-import AiWorkflow from "../components/sections/AiWorkflow"
+// import AiWorkflow from "../components/sections/AiWorkflow"
 import Writing from "../components/sections/Writing"
 import Speaking from "../components/sections/Speaking"
 import Contact from "../components/sections/Contact"
@@ -16,12 +16,12 @@ const IndexPage: React.FC<PageProps> = () => {
     return (
         <Layout>
             <Hero />
-            <Principles />
+            {/* <Principles /> */}
             <Work />
             <Experience />
             <Skills />
             <Certifications />
-            <AiWorkflow />
+            {/* <AiWorkflow /> */}
             <Writing />
             <Speaking />
             <Contact />

@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                             <Link to="/" className="text-teal font-mono font-bold text-2xl hover:text-teal/80 transition-colors">MR</Link>
                         </div>
                         <div className="hidden md:flex flex-1 justify-center items-baseline space-x-6">
-                            {['About', 'Experience', 'Projects', 'Skills', 'Certifications', 'AI', 'Blog', 'Contact'].map((item) => (
+                            {['About', 'Experience', 'Projects', 'Skills', 'Certifications', 'Blog', 'Contact'].map((item) => (
                                 <Link
                                     key={item}
                                     to={`#${item.toLowerCase()}`}

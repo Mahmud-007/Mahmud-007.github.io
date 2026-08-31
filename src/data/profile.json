@@ -1,17 +1,33 @@
 {
   "name": "Mahmudur Rahman",
   "initials": "MR",
-  "tagline": "Software Engineer — I own systems in production, not just features.",
+  "tagline": "AI-Native Software Engineer — Shipping production systems in days, not sprints · Node.js · Python AWS · Serverless · LLM",
   "intro": "Backend-focused full-stack engineer with ~4 years owning systems in production. I design, deploy, monitor, and keep services stable under real traffic — and I decide what is worth building before I build it. I care about bottlenecks, run cost, failure modes, and the business number on the other side of the change.",
   "location": "Bangladesh",
   "email": "mahmud6799@gmail.com",
   "resume": "/Mahmudur_Rahman.pdf",
   "availability": { "status": "Open to work", "tone": "green" },
   "socials": [
-    { "label": "GitHub", "url": "https://github.com/Mahmud-007", "icon": "github" },
-    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/rahman-mahmud/", "icon": "linkedin" },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/Mahmud-007",
+      "icon": "github"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/rahman-mahmud/",
+      "icon": "linkedin"
+    },
     { "label": "X", "url": "https://x.com/Rahman007Mahmud", "icon": "x" },
-    { "label": "Medium", "url": "https://medium.com/@mahmud6799", "icon": "medium" },
-    { "label": "YouTube", "url": "https://www.youtube.com/@mahmudurrahman8104", "icon": "youtube" }
+    {
+      "label": "Medium",
+      "url": "https://medium.com/@mahmud6799",
+      "icon": "medium"
+    },
+    {
+      "label": "YouTube",
+      "url": "https://www.youtube.com/@mahmudurrahman8104",
+      "icon": "youtube"
+    }
   ]
 }
