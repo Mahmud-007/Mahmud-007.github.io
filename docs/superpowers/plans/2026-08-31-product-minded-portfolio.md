@@ -1787,8 +1787,19 @@ interface Context {
   next: Neighbor | null;
 }
 
-const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => {
-  if (!children) return null;
+/**
+ * `when` is required and must be computed by the caller.
+ * Do NOT test `children` instead: `children` is a JSX element, which is truthy
+ * even when the child component renders null — every section heading would then
+ * appear above an empty body in production, which is exactly what the TODO
+ * discipline exists to prevent.
+ */
+const Section: React.FC<{ title: string; when: boolean; children: React.ReactNode }> = ({
+  title,
+  when,
+  children,
+}) => {
+  if (!when) return null;
   return (
     <section className="py-8 border-t border-rule">
       <h2 className="font-mono text-sm text-teal mb-5">{`// ${title}`}</h2>
@@ -1805,6 +1816,26 @@ const CaseStudyTemplate: React.FC<PageProps<object, Context>> = ({ pageContext }
   const retro = field(caseStudy.retro);
   const role = field(caseStudy.role);
   const period = field(caseStudy.period);
+
+  // Each section's visibility, computed from the same environment-aware helpers the
+  // blocks themselves use: in `gatsby develop` a TODO yields a truthy object so the
+  // section renders with visible badges; in a production build it yields null so the
+  // section disappears entirely rather than leaving a heading over an empty body.
+  const { decision, cost, risk, impact, architecture } = caseStudy;
+
+  const hasProblem = Boolean(context || trigger);
+  const hasDecision = Boolean(
+    field(decision.chose) || field(decision.rejected) || field(decision.why) || decision.options.length
+  );
+  const hasCost = Boolean(field(cost.engineering) || field(cost.run) || field(cost.timeline));
+  const hasRisk = Boolean(
+    field(risk.operational) ||
+      listField(risk.failureModes).length ||
+      listField(risk.mitigations).length
+  );
+  const hasImpact = Boolean(outcome || impact.metrics.some((m) => field(m.value)));
+  const hasArchitecture = listField(architecture.steps).length > 0;
+  const hasRetro = Boolean(retro);
 
   return (
     <Layout>
@@ -1844,7 +1875,7 @@ const CaseStudyTemplate: React.FC<PageProps<object, Context>> = ({ pageContext }
 
         <ImpactStrip metrics={caseStudy.impact.metrics} />
 
-        <Section title="the problem">
+        <Section title="the problem" when={hasProblem}>
           {(context || trigger) && (
             <div className="space-y-3 text-slate-light text-sm leading-relaxed">
               {context && <p>{context.todo ? <TodoBadge /> : context.value}</p>}
@@ -1853,19 +1884,19 @@ const CaseStudyTemplate: React.FC<PageProps<object, Context>> = ({ pageContext }
           )}
         </Section>
 
-        <Section title="the decision">
+        <Section title="the decision" when={hasDecision}>
           <DecisionTable decision={caseStudy.decision} />
         </Section>
 
-        <Section title="what it cost">
+        <Section title="what it cost" when={hasCost}>
           <CostBlock cost={caseStudy.cost} />
         </Section>
 
-        <Section title="operational risk">
+        <Section title="operational risk" when={hasRisk}>
           <RiskBlock risk={caseStudy.risk} />
         </Section>
 
-        <Section title="impact">
+        <Section title="impact" when={hasImpact}>
           {outcome && (
             <p className="text-slate-light text-sm leading-relaxed">
               {outcome.todo ? <TodoBadge /> : outcome.value}
@@ -1873,11 +1904,11 @@ const CaseStudyTemplate: React.FC<PageProps<object, Context>> = ({ pageContext }
           )}
         </Section>
 
-        <Section title="architecture">
+        <Section title="architecture" when={hasArchitecture}>
           <ArchFlow steps={caseStudy.architecture.steps} />
         </Section>
 
-        <Section title="what I'd do differently">
+        <Section title="what I'd do differently" when={hasRetro}>
           {retro && (
             <p className="text-slate-light text-sm leading-relaxed">
               {retro.todo ? <TodoBadge /> : retro.value}
