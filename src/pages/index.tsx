@@ -4,7 +4,7 @@ import Layout from "../components/layout/Layout"
 import Hero from "../components/sections/Hero"
 import Principles from "../components/sections/Principles"
 import Experience from "../components/sections/Experience"
-import Projects from "../components/sections/Projects"
+import Work from "../components/sections/Work"
 import Skills from "../components/sections/Skills"
 import Certifications from "../components/sections/Certifications"
 import AiWorkflow from "../components/sections/AiWorkflow"
@@ -17,8 +17,8 @@ const IndexPage: React.FC<PageProps> = () => {
         <Layout>
             <Hero />
             <Principles />
+            <Work />
             <Experience />
-            <Projects />
             <Skills />
             <Certifications />
             <AiWorkflow />

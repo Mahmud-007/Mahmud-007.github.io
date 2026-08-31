@@ -1,8 +1,55 @@
 [
   {
+    "title": "Domka",
+    "summary": "An AI-native newsroom automation tool. Personal product.",
+    "tags": ["TODO"],
+    "category": "Product",
+    "caseStudySlug": "domka",
+    "status": "Personal product",
+    "year": "TODO",
+    "metric": "TODO"
+  },
+  {
+    "title": "Storylens",
+    "summary": "Event-driven LLM backend turning articles into visual summaries. Semantic prompt caching held sub-second p50 while cutting per-article model spend.",
+    "tags": ["Node.js", "AWS Lambda", "LLM", "Event-Driven", "Caching"],
+    "category": "AI & LLM",
+    "caseStudySlug": "storylens",
+    "status": "In production",
+    "metric": "70% cache hit · 300%+ ROI"
+  },
+  {
+    "title": "Widget Builder",
+    "summary": "Internal widget-generation engine so non-engineers ship production-ready widgets without a developer cycle.",
+    "tags": ["Node.js", "Internal Tooling", "Automation"],
+    "category": "Tooling",
+    "caseStudySlug": "widget-builder",
+    "status": "In production",
+    "metric": "30m → <2m"
+  },
+  {
+    "title": "Data Pipeline Fault Tolerance",
+    "summary": "10 data parsers on the ELK stack across AWS ECS and Lambda. Peak-event bursts dropped feeds until async queuing and exponential backoff eliminated the loss.",
+    "tags": ["ELK", "AWS ECS", "AWS Lambda", "Queuing", "Fault Tolerance"],
+    "category": "Backend & Distributed",
+    "caseStudySlug": "data-pipeline",
+    "status": "In production",
+    "metric": "0 dropped feeds"
+  },
+  {
+    "title": "Banglapapers",
+    "summary": "AI news platform aggregating 10+ publisher feeds with OpenSearch semantic indexing, tuned for sub-100ms retrieval.",
+    "tags": ["OpenSearch", "Semantic Search", "Node.js", "AWS"],
+    "category": "AI & LLM",
+    "caseStudySlug": "banglapapers",
+    "status": "In production",
+    "metric": "<100ms retrieval"
+  },
+  {
     "title": "Adaptive Restaurant Forecasting Engine",
     "summary": "An AI-driven POC forecasting demand, staffing, and inventory with feedback loops for continuously improving model accuracy.",
     "tags": ["FastAPI", "Python", "LightGBM", "SGDRegressor", "Streamlit", "React"],
+    "category": "AI & LLM",
     "link": "https://github.com/Mahmud-007",
     "metric": "Self-learning POC"
   },
@@ -10,18 +57,21 @@
     "title": "Swapnanagar — Charity Platform",
     "summary": "A content-driven donation platform with campaign handling and PayPal-based payment flow, built with Figma MCP and a Strapi CMS; SEO-friendly and performance-optimized.",
     "tags": ["React", "Strapi", "PayPal", "MongoDB", "Node.js"],
+    "category": "Product",
     "link": "https://www.swapnanagar.org/"
   },
   {
     "title": "FootyLight Soccer Highlights",
     "summary": "A mobile app serving global football fans with highlights, live updates, and personalized content across iOS and Android, backed by 4 microservices.",
     "tags": ["React Native", "Node.js", "AWS", "Microservices"],
+    "category": "Product",
     "link": "https://apps.apple.com/us/app/footylight-soccer-highlights/id549404480"
   },
   {
     "title": "Hyperledger Fabric Management System",
     "summary": "A management interface for Hyperledger Fabric that removes CLI complexity for Docker-based network operations.",
     "tags": ["Hyperledger Fabric", "Docker", "Node.js"],
+    "category": "Tooling",
     "link": "https://github.com/Mahmud-007/HyperledgerFabric-Management-System"
   }
 ]
