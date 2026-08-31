@@ -7,7 +7,7 @@ interface CountUpProps {
   duration?: number;
 }
 
-const LEADING_NUMBER = /^(\d+(?:\.\d+)?)(.*)$/s;
+const LEADING_NUMBER = /^(\d+(?:\.\d+)?)(%|\+|x|ms|s|k|K|m|M)?$/;
 
 const CountUp: React.FC<CountUpProps> = ({ value, className, duration = 900 }) => {
   const ref = React.useRef<HTMLSpanElement>(null);
@@ -16,7 +16,7 @@ const CountUp: React.FC<CountUpProps> = ({ value, className, duration = 900 }) =
 
   const match = value.match(LEADING_NUMBER);
   const target = match ? parseFloat(match[1]) : null;
-  const suffix = match ? match[2] : '';
+  const suffix = match ? (match[2] ?? '') : '';
   const decimals = match && match[1].includes('.') ? 1 : 0;
 
   const [current, setCurrent] = React.useState(0);
