@@ -15,8 +15,8 @@ const List: React.FC<{ title: string; items: string[]; marker: string; tone: str
     <div>
       <p className="font-mono text-xs text-slate-light/60 mb-3">{title}</p>
       <ul className="space-y-2">
-        {usable.map((item) => (
-          <li key={item} className="flex items-start text-sm text-slate-light">
+        {usable.map((item, i) => (
+          <li key={`${item}-${i}`} className="flex items-start text-sm text-slate-light">
             <span className={`mr-2 font-mono ${tone}`}>{marker}</span>
             {isTodo(item) ? <TodoBadge /> : <span>{item}</span>}
           </li>

@@ -10,11 +10,11 @@ const ImpactStrip: React.FC<{ metrics: Metric[] }> = ({ metrics }) => {
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 my-8">
-      {usable.map((metric) => {
+      {usable.map((metric, i) => {
         const value = field(metric.value);
         const baseline = field(metric.baseline);
         return (
-          <div key={metric.label} className="rounded-lg border border-navy-700 bg-navy-900/50 p-4">
+          <div key={`${metric.label}-${i}`} className="rounded-lg border border-navy-700 bg-navy-900/50 p-4">
             <div className="text-status-green text-2xl font-bold font-mono">
               {value?.todo ? <TodoBadge /> : <CountUp value={metric.value} />}
             </div>

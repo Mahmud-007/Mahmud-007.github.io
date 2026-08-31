@@ -55,6 +55,8 @@ src/data/profile.json                   Identity, socials, availability
 src/data/principles.json                The four decision questions
 src/data/caseStudies.json               Deep content for /work/<slug>
 src/data/github.json                    Build-time fetch fallback
+src/data/youtube.json                   YouTube feed fallback (Task 14)
+src/components/sections/Video.tsx       Latest YouTube uploads (Task 14)
 src/components/ui/Terminal.tsx          Window chrome (extracted from Hero + AiWorkflow)
 src/components/ui/SectionHeading.tsx    `// label` heading (extracted from 7 components)
 src/components/ui/Tag.tsx               Tag / metric pill
@@ -2509,7 +2511,377 @@ git commit -m "feat: merge credentials, add skills marquee, drive contact from p
 
 ---
 
-### Task 14: Page assembly, navigation, and SEO — BUILD GATE
+### Task 14: Remove AI Workflow and Principles, add YouTube video section — BUILD GATE
+
+Two scope changes requested by the project owner after those sections shipped:
+
+1. The `// how I work with AI` section is removed entirely. The AI tooling itself stays visible through the existing "AI Tools & Workflows" group in `skills.json` — only the section explaining the process goes.
+2. The `// how I decide` (Principles) section is removed entirely, including its data file. The owner chose the "show, don't tell" route: the decision framing now lives only inside the case studies, where it is evidence rather than assertion. Delete it wholesale — do not relocate the cards, do not fold the copy into another section.
+
+A section showing the latest YouTube uploads takes their place.
+
+**Files:**
+- Delete: `src/components/sections/AiWorkflow.tsx`
+- Delete: `src/components/sections/Principles.tsx`
+- Delete: `src/data/principles.json`
+- Create: `src/data/youtube.json`
+- Create: `src/components/sections/Video.tsx`
+- Modify: `gatsby-node.ts`
+- Modify: `src/types/index.ts`
+- Modify: `src/pages/index.tsx`
+
+**Interfaces:**
+- Consumes: `SectionHeading`, `Reveal`, `Terminal`, the `sourceNodes` pattern already established for GitHub in Task 11.
+- Produces: GraphQL node type `YoutubeFeed` with fields `channelTitle`, `channelUrl`, `fetchedAt`, `videos { videoId title url thumbnail published views }`; `<Video />` at `id="video"`.
+
+- [ ] **Step 1: Add the types to `src/types/index.ts`**
+
+```ts
+export interface YoutubeVideo {
+  videoId: string;
+  title: string;
+  url: string;
+  thumbnail: string;
+  published: string;
+  views: number;
+}
+
+export interface YoutubeFeed {
+  channelTitle: string;
+  channelUrl: string;
+  videos: YoutubeVideo[];
+  fetchedAt: string;
+}
+```
+
+- [ ] **Step 2: Create the fallback `src/data/youtube.json`**
+
+Same discipline as `github.json`: real identifiers, no invented content. An empty `videos` array makes the section hide itself rather than display stale or wrong data.
+
+```json
+{
+  "channelTitle": "Mahmudur Rahman",
+  "channelUrl": "https://www.youtube.com/channel/UCXYONuojOl6sGPHvupVXx7w",
+  "videos": [],
+  "fetchedAt": ""
+}
+```
+
+- [ ] **Step 3: Add YouTube sourcing to `gatsby-node.ts`**
+
+YouTube's Atom feed has a stable, simple shape, so it is parsed with targeted regexes rather than adding an XML dependency — the plan's no-new-dependencies constraint holds. Append to the existing file and add the fallback import alongside the GitHub one:
+
+```ts
+import youtubeFallback from './src/data/youtube.json';
+import type { YoutubeFeed, YoutubeVideo } from './src/types';
+
+const YOUTUBE_CHANNEL_ID = 'UCXYONuojOl6sGPHvupVXx7w';
+const YOUTUBE_FEED_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${YOUTUBE_CHANNEL_ID}`;
+
+function decodeEntities(value: string): string {
+  return value
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, '&');
+}
+
+/** Reads the text content of the first <name>…</name> in a feed entry. */
+function readTag(source: string, name: string): string {
+  const match = source.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`));
+  return match ? decodeEntities(match[1].trim()) : '';
+}
+
+async function fetchYoutubeFeed(reporter: {
+  warn: (message: string) => void;
+}): Promise<YoutubeFeed> {
+  try {
+    const response = await fetch(YOUTUBE_FEED_URL, {
+      headers: { 'User-Agent': 'portfolio-build' },
+    });
+
+    if (!response.ok) throw new Error(`youtube responded ${response.status}`);
+
+    const xml = await response.text();
+    const entries = xml
+      .split('<entry>')
+      .slice(1)
+      .map((chunk) => chunk.split('</entry>')[0]);
+
+    const videos: YoutubeVideo[] = entries
+      .map((entry) => {
+        const videoId = readTag(entry, 'yt:videoId');
+        const thumbnail = entry.match(/<media:thumbnail\s+url="([^"]+)"/);
+        const views = entry.match(/views="(\d+)"/);
+        return {
+          videoId,
+          title: readTag(entry, 'title'),
+          url: `https://www.youtube.com/watch?v=${videoId}`,
+          thumbnail: thumbnail
+            ? thumbnail[1]
+            : `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+          published: readTag(entry, 'published'),
+          views: views ? Number(views[1]) : 0,
+        };
+      })
+      .filter((video) => video.videoId && video.title);
+
+    if (videos.length === 0) throw new Error('feed contained no usable entries');
+
+    return {
+      channelTitle: readTag(xml, 'title') || 'Mahmudur Rahman',
+      channelUrl: `https://www.youtube.com/channel/${YOUTUBE_CHANNEL_ID}`,
+      videos: videos.slice(0, 8),
+      fetchedAt: new Date().toISOString(),
+    };
+  } catch (error) {
+    reporter.warn(
+      `YouTube feed unavailable (${(error as Error).message}); using src/data/youtube.json fallback.`
+    );
+    return youtubeFallback as YoutubeFeed;
+  }
+}
+```
+
+Note on `readTag(entry, 'title')`: the regex requires the literal `<title`, so it does not match `<media:title>` — the first match is the entry's own title. Do not "simplify" this to a looser pattern.
+
+Extend the existing `sourceNodes` export to create both nodes — do not add a second `sourceNodes` export, Gatsby will only honour one:
+
+```ts
+export const sourceNodes: GatsbyNode['sourceNodes'] = async ({
+  actions,
+  createNodeId,
+  createContentDigest,
+  reporter,
+}) => {
+  const stats = await fetchGithubStats(reporter);
+
+  actions.createNode({
+    ...stats,
+    id: createNodeId('github-stats'),
+    parent: null,
+    children: [],
+    internal: {
+      type: 'GithubStats',
+      contentDigest: createContentDigest(stats),
+    },
+  });
+
+  const feed = await fetchYoutubeFeed(reporter);
+
+  actions.createNode({
+    ...feed,
+    id: createNodeId('youtube-feed'),
+    parent: null,
+    children: [],
+    internal: {
+      type: 'YoutubeFeed',
+      contentDigest: createContentDigest(feed),
+    },
+  });
+};
+```
+
+Extend `createSchemaCustomization` — the empty-array fallback case needs an explicit type here for exactly the reason it did for GitHub:
+
+```
+    type YoutubeVideo {
+      videoId: String!
+      title: String!
+      url: String!
+      thumbnail: String!
+      published: String!
+      views: Int!
+    }
+
+    type YoutubeFeed implements Node {
+      channelTitle: String!
+      channelUrl: String!
+      videos: [YoutubeVideo!]!
+      fetchedAt: String!
+    }
+```
+
+- [ ] **Step 4: Create `src/components/sections/Video.tsx`**
+
+Featured newest video plus a terminal-styled list of the rest, per the owner's chosen layout.
+
+```tsx
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import SectionHeading from '../ui/SectionHeading';
+import Reveal from '../ui/Reveal';
+import type { YoutubeFeed } from '../../types';
+
+const formatDate = (value: string) =>
+  value ? new Date(value).toISOString().slice(0, 10) : '';
+
+const Video = () => {
+  const data = useStaticQuery<{ youtubeFeed: YoutubeFeed }>(graphql`
+    query YoutubeFeedQuery {
+      youtubeFeed {
+        channelTitle
+        channelUrl
+        fetchedAt
+        videos {
+          videoId
+          title
+          url
+          thumbnail
+          published
+          views
+        }
+      }
+    }
+  `);
+
+  const feed = data.youtubeFeed;
+  if (!feed || feed.videos.length === 0) return null;
+
+  const [featured, ...rest] = feed.videos;
+
+  return (
+    <section id="video" className="py-20 px-4 sm:px-6 lg:px-8 bg-content-surface/40">
+      <div className="max-w-6xl mx-auto">
+        <SectionHeading label="video" />
+
+        <p className="text-slate-light max-w-2xl mb-10 leading-relaxed">
+          Short technical explainers — the same things I argue about at work, written down for
+          anyone who has to make the same call.
+        </p>
+
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_1fr]">
+          <Reveal>
+            <a
+              href={featured.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group block rounded-xl border border-navy-700 bg-navy-800/60 overflow-hidden hover:border-teal/40 transition-colors duration-300"
+            >
+              <div className="relative">
+                <img
+                  src={featured.thumbnail}
+                  alt=""
+                  loading="lazy"
+                  className="w-full aspect-video object-cover"
+                />
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full border border-teal/70 bg-navy-900/70 text-teal text-xl transition-transform duration-300 group-hover:scale-110">
+                    ▶
+                  </span>
+                </span>
+              </div>
+              <div className="p-5">
+                <p className="font-mono text-[11px] text-status-green mb-2">latest</p>
+                <h3 className="text-lg font-bold text-slate-lightest group-hover:text-teal transition-colors">
+                  {featured.title}
+                </h3>
+                <p className="font-mono text-xs text-slate-light/60 mt-2">
+                  {formatDate(featured.published)}
+                  {featured.views > 0 ? ` · ${featured.views} views` : ''}
+                </p>
+              </div>
+            </a>
+          </Reveal>
+
+          {rest.length > 0 && (
+            <Reveal delay={0.06}>
+              <div className="rounded-xl border border-navy-700 bg-navy-800/60 overflow-hidden font-mono h-full">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-navy-700 bg-navy-900/70">
+                  <span className="w-3 h-3 rounded-full bg-red-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-status-green/80" />
+                  <span className="ml-3 text-xs text-slate-light">~/youtube</span>
+                </div>
+                <div className="p-4">
+                  <p className="text-xs text-slate-light mb-3">
+                    <span className="text-status-green">$</span> yt --list
+                  </p>
+                  <ul className="divide-y divide-navy-700">
+                    {rest.map((video) => (
+                      <li key={video.videoId}>
+                        <a
+                          href={video.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-start gap-3 py-3 group"
+                        >
+                          <span className="text-teal text-xs mt-0.5">▹</span>
+                          <span className="flex-1">
+                            <span className="block text-sm text-slate-lightest font-sans leading-snug group-hover:text-teal transition-colors">
+                              {video.title}
+                            </span>
+                            <span className="block text-[11px] text-slate-light/50 mt-1">
+                              {formatDate(video.published)}
+                              {video.views > 0 ? ` · ${video.views} views` : ''}
+                            </span>
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Reveal>
+          )}
+        </div>
+
+        <a
+          href={feed.channelUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-block mt-8 font-mono text-xs text-teal hover:text-teal/80 transition-colors"
+        >
+          all videos on YouTube ↗
+        </a>
+      </div>
+    </section>
+  );
+};
+
+export default Video;
+```
+
+- [ ] **Step 5: Delete AiWorkflow and Principles, and swap in Video**
+
+```bash
+git rm src/components/sections/AiWorkflow.tsx
+git rm src/components/sections/Principles.tsx
+git rm src/data/principles.json
+```
+
+In `src/pages/index.tsx`, remove the `AiWorkflow` import and element, remove the `Principles` import and element, then import `Video` and place `<Video />` immediately after `<Writing />`. Task 15 sets the final order — this step only has to leave the page building.
+
+After deleting, confirm nothing still references the removed modules:
+
+```bash
+grep -rn "Principles\|principles.json\|AiWorkflow" src/ | grep -v node_modules
+```
+
+Expected: no output. A dangling import fails the build gate two steps later.
+
+Note: the Hero's primary CTA reads "See how I decide" and points at `#work`. Leave it. With the Principles section gone the phrase now describes what the Work grid demonstrates, which is the intent — do not reword it on your own initiative.
+
+- [ ] **Step 6: BUILD GATE — normal path**
+
+Run: `npm run build`
+Expected: exit 0, no YouTube warning in the log (a warning means the fetch failed and the fallback was used).
+
+- [ ] **Step 7: BUILD GATE — fallback path**
+
+Temporarily change `https://www.youtube.com` in `YOUTUBE_FEED_URL` to `https://www.youtube.invalid`, then run `npm run build`. Expected: exit 0 with `warning YouTube feed unavailable (...); using src/data/youtube.json fallback.` in the log, and no video section in the output HTML. Revert the string and confirm `git diff gatsby-node.ts` is empty.
+
+- [ ] **Step 8: Commit**
+
+```bash
+git add -A gatsby-node.ts src/types/index.ts src/data/youtube.json src/components/sections src/pages/index.tsx
+git commit -m "feat: replace AI workflow section with build-time YouTube feed"
+```
+
+---
+
+### Task 15: Page assembly, navigation, and SEO — BUILD GATE
 
 **Files:**
 - Modify: `src/pages/index.tsx`
@@ -2524,13 +2896,12 @@ git commit -m "feat: merge credentials, add skills marquee, drive contact from p
 ```tsx
 <Layout>
   <Hero />
-  <Principles />
   <Work />
   <Experience />
   <Skills />
   <GitHubActivity />
   <Writing />
-  <AiWorkflow />
+  <Video />
   <Credentials />
   <Contact />
 </Layout>
@@ -2556,15 +2927,17 @@ Replace the hardcoded label array with entries matching the new section ids, and
 
 ```tsx
 const NAV = [
-  { label: 'Decide', href: '/#principles' },
   { label: 'Work', href: '/#work' },
   { label: 'Experience', href: '/#experience' },
   { label: 'Skills', href: '/#skills' },
   { label: 'GitHub', href: '/#github' },
   { label: 'Writing', href: '/#writing' },
+  { label: 'Video', href: '/#video' },
   { label: 'Contact', href: '/#contact' },
 ];
 ```
+
+There is deliberately no `AI` entry — that section was removed in Task 14.
 
 Use absolute `/#anchor` hrefs, not `#anchor` — bare fragments break when the visitor is on a `/work/<slug>/` page. Keep `MR` as the logo but read it from `profile.initials`, and read the resume href from `profile.resume`.
 
@@ -2586,7 +2959,7 @@ git commit -m "feat: finalize page order, navigation, and page metadata"
 
 ---
 
-### Task 15: Full verification pass
+### Task 16: Full verification pass
 
 No new code. This task exists because the spec's section 8 lists verification steps that must be *run*, and a plan that assumes them is a plan that ships a broken page.
 
@@ -2601,6 +2974,17 @@ npm run build
 
 Expected: exit 0, no errors, no new warnings. Confirm all five `/work/` directories exist under `public/work`.
 
+- [ ] **Step 1b: Confirm the AI Workflow section is gone**
+
+```bash
+test ! -f src/components/sections/AiWorkflow.tsx && echo "ai component deleted"
+test ! -f src/components/sections/Principles.tsx && echo "principles component deleted"
+test ! -f src/data/principles.json && echo "principles data deleted"
+grep -rin "how I work with AI\|ai-assisted-dev\|how I decide" src/ public/index.html | wc -l
+```
+
+Expected: all three "deleted" lines, and a count of `0`. The nav must have no `AI` and no `Decide` entry, and the page no `#ai` or `#principles` anchor.
+
 - [ ] **Step 2: Desktop preview of `/`**
 
 `preview_start` `{name: "gatsby-develop"}`, load `/`. Walk every section top to bottom. Then `read_console_messages` — expect zero errors — and `read_network_requests` — expect no failed requests.
@@ -2612,6 +2996,10 @@ Click each of the five chips. Cards animate, counts match, no console error on r
 - [ ] **Step 4: All five case study routes**
 
 Load each `/work/<slug>/`. Confirm prev/next navigation works at both ends of the list (`domka` has no prev, `banglapapers` has no next) and that `/work/domka/` renders without crashing despite being almost entirely TODO.
+
+- [ ] **Step 4b: Video section**
+
+Confirm the featured video's thumbnail loads from `i.ytimg.com` (check `read_network_requests` for a failed image), the play overlay renders over it, the three remaining videos appear in the terminal list, and every link opens the right video. Then confirm the section hides cleanly on the fallback path by checking that Task 14's Step 7 fallback build produced no `id="video"` in `public/index.html`.
 
 - [ ] **Step 5: Mobile viewport**
 
