@@ -1,5 +1,5 @@
 import React from 'react';
-import experienceData from '../data/experience.json';
+import experienceData from '../../data/experience.json';
 
 interface Highlight {
   title: string;

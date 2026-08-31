@@ -1,5 +1,5 @@
 import React from 'react';
-import certificationsData from '../data/certifications.json';
+import certificationsData from '../../data/certifications.json';
 
 interface Certification {
   title: string;

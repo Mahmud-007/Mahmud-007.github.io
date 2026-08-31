@@ -1,16 +1,16 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import Layout from "../components/Layout"
-import Hero from "../components/Hero"
-import About from "../components/About"
-import Experience from "../components/Experience"
-import Projects from "../components/Projects"
-import Skills from "../components/Skills"
-import Certifications from "../components/Certifications"
-import AiWorkflow from "../components/AiWorkflow"
-import Blog from "../components/Blog"
-import Speaking from "../components/Speaking"
-import Contact from "../components/Contact"
+import Layout from "../components/layout/Layout"
+import Hero from "../components/sections/Hero"
+import About from "../components/sections/About"
+import Experience from "../components/sections/Experience"
+import Projects from "../components/sections/Projects"
+import Skills from "../components/sections/Skills"
+import Certifications from "../components/sections/Certifications"
+import AiWorkflow from "../components/sections/AiWorkflow"
+import Writing from "../components/sections/Writing"
+import Speaking from "../components/sections/Speaking"
+import Contact from "../components/sections/Contact"
 
 const IndexPage: React.FC<PageProps> = () => {
     return (
@@ -22,7 +22,7 @@ const IndexPage: React.FC<PageProps> = () => {
             <Skills />
             <Certifications />
             <AiWorkflow />
-            <Blog />
+            <Writing />
             <Speaking />
             <Contact />
         </Layout>

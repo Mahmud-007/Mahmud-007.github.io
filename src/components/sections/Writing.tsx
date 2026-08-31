@@ -1,5 +1,5 @@
 import React from 'react';
-import articlesData from '../data/articles.json';
+import articlesData from '../../data/articles.json';
 
 interface Article {
   title: string;
@@ -8,7 +8,7 @@ interface Article {
   link: string;
 }
 
-const Blog = () => {
+const Writing = () => {
   return (
     <section id="blog" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
@@ -40,4 +40,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Writing;

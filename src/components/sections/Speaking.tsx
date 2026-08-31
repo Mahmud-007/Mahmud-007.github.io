@@ -14,7 +14,7 @@ const Speaking = () => {
                         <div className="absolute inset-0 bg-teal/20 rounded-lg transform translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
                         <div className="relative rounded-lg overflow-hidden border-2 border-teal grayscale hover:grayscale-0 transition-all duration-300">
                             <StaticImage
-                                src="../images/speaking.jpg"
+                                src="../../images/speaking.jpg"
                                 alt="Mahmudur presenting"
                                 placeholder="blurred"
                                 layout="fullWidth"

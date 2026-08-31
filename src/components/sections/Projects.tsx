@@ -1,5 +1,5 @@
 import React from 'react';
-import projectsData from '../data/projects.json';
+import projectsData from '../../data/projects.json';
 
 interface Project {
   title: string;

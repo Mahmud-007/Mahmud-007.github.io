@@ -1,6 +1,6 @@
 import React from 'react';
 
-import skillsData from '../data/skills.json';
+import skillsData from '../../data/skills.json';
 
 const skills = skillsData;
 
