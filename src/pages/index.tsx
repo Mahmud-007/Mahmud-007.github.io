@@ -2,7 +2,6 @@ import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import Layout from "../components/layout/Layout"
 import Hero from "../components/sections/Hero"
-import About from "../components/sections/About"
 import Experience from "../components/sections/Experience"
 import Projects from "../components/sections/Projects"
 import Skills from "../components/sections/Skills"
@@ -16,7 +15,6 @@ const IndexPage: React.FC<PageProps> = () => {
     return (
         <Layout>
             <Hero />
-            <About />
             <Experience />
             <Projects />
             <Skills />
