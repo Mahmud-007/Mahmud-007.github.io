@@ -1,0 +1,26 @@
+[
+  {
+    "command": "./is-it-worth-building",
+    "title": "Is this worth building?",
+    "body": "The cheapest system is the one you talked yourself out of. Before I design anything I want to know who is blocked, how often, and what it costs them today. If the honest answer is a config change or a runbook, that is the deliverable. When the answer is real, the case is easy to make and easy to defend later.",
+    "evidence": "widget-builder"
+  },
+  {
+    "command": "./what-does-it-cost",
+    "title": "What does it cost — to build and to run?",
+    "body": "Engineering time is the visible cost; the run cost is the one that compounds. I price the request path before I commit to it — what it calls, what it stores, what it re-computes. A design that is elegant and quietly expensive per request is not a design I want to defend twelve months in.",
+    "evidence": "storylens"
+  },
+  {
+    "command": "./what-breaks-at-3am",
+    "title": "What is the operational risk?",
+    "body": "Every system fails; the question is whether it fails loudly, partially, and recoverably. I ask what happens under a burst, what happens when a dependency is slow rather than down, and what the on-call person can actually do about it. Retries, backoff, and queues are cheaper than an incident.",
+    "evidence": "data-pipeline"
+  },
+  {
+    "command": "./what-number-moved",
+    "title": "What business outcome does this create?",
+    "body": "A change that nobody can measure is a change nobody will defend when priorities shift. I want the metric named before the work starts and the baseline recorded, so afterwards the claim is arithmetic rather than opinion. Latency, cost per request, hours returned to a team — all of them count, none of them are assumed.",
+    "evidence": "banglapapers"
+  }
+]
