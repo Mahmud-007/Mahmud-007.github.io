@@ -1,0 +1,153 @@
+[
+  {
+    "slug": "domka",
+    "title": "Domka",
+    "category": "Product",
+    "role": "TODO",
+    "period": "TODO",
+    "status": "Personal product",
+    "oneLiner": "An AI-native newsroom automation tool.",
+    "stack": ["TODO"],
+    "problem": { "context": "TODO", "trigger": "TODO" },
+    "decision": {
+      "question": "Is this worth building?",
+      "options": [],
+      "chose": "TODO",
+      "rejected": "TODO",
+      "why": "TODO"
+    },
+    "cost": { "engineering": "TODO", "run": "TODO", "timeline": "TODO" },
+    "risk": { "operational": "TODO", "failureModes": ["TODO"], "mitigations": ["TODO"] },
+    "impact": { "metrics": [], "businessOutcome": "TODO" },
+    "architecture": { "steps": [] },
+    "retro": "TODO",
+    "links": []
+  },
+  {
+    "slug": "storylens",
+    "title": "Storylens",
+    "category": "AI & LLM",
+    "role": "Software Engineer — design, build, operate",
+    "period": "Apr 2022 – Present",
+    "status": "In production",
+    "oneLiner": "Event-driven LLM backend turning articles into visual summaries. Semantic prompt caching held sub-second p50 while cutting per-article model spend.",
+    "stack": ["Node.js", "AWS Lambda", "LLM", "Event-Driven", "Caching"],
+    "problem": { "context": "Every article re-ran the full LLM pipeline.", "trigger": "TODO" },
+    "decision": {
+      "question": "Is this worth building?",
+      "options": [],
+      "chose": "Semantic prompt caching in front of the LLM pipeline.",
+      "rejected": "TODO",
+      "why": "Accepted eventual staleness in exchange for latency and cost."
+    },
+    "cost": { "engineering": "TODO", "run": "TODO", "timeline": "TODO" },
+    "risk": { "operational": "TODO", "failureModes": ["TODO"], "mitigations": ["TODO"] },
+    "impact": {
+      "metrics": [
+        { "label": "cache hit rate", "value": "70%", "baseline": "TODO", "howMeasured": "TODO" },
+        { "label": "ROI", "value": "300%+", "baseline": "TODO", "howMeasured": "TODO" },
+        { "label": "p50 response", "value": "<1s", "baseline": "TODO", "howMeasured": "TODO" }
+      ],
+      "businessOutcome": "TODO"
+    },
+    "architecture": { "steps": [] },
+    "retro": "TODO",
+    "links": []
+  },
+  {
+    "slug": "widget-builder",
+    "title": "Widget Builder",
+    "category": "Tooling",
+    "role": "Software Engineer — design, build, operate",
+    "period": "Apr 2022 – Present",
+    "status": "In production",
+    "oneLiner": "Internal widget-generation engine so non-engineers ship production-ready widgets without a developer cycle.",
+    "stack": ["TODO"],
+    "problem": {
+      "context": "Producing a production-ready widget was a repetitive 30-minute manual workflow that required a developer.",
+      "trigger": "TODO"
+    },
+    "decision": {
+      "question": "Is this worth building?",
+      "options": [],
+      "chose": "TODO",
+      "rejected": "TODO",
+      "why": "TODO"
+    },
+    "cost": { "engineering": "TODO", "run": "TODO", "timeline": "TODO" },
+    "risk": { "operational": "TODO", "failureModes": ["TODO"], "mitigations": ["TODO"] },
+    "impact": {
+      "metrics": [
+        { "label": "time to ship a widget", "value": "30m → <2m", "baseline": "30 minutes, developer-led", "howMeasured": "TODO" }
+      ],
+      "businessOutcome": "Non-engineers ship production-ready widgets without a developer cycle."
+    },
+    "architecture": { "steps": [] },
+    "retro": "TODO",
+    "links": []
+  },
+  {
+    "slug": "data-pipeline",
+    "title": "Data Pipeline Fault Tolerance",
+    "category": "Backend & Distributed",
+    "role": "Software Engineer — design, build, operate",
+    "period": "Apr 2022 – Present",
+    "status": "In production",
+    "oneLiner": "",
+    "stack": ["ELK", "AWS ECS", "AWS Lambda", "Queuing"],
+    "problem": { "context": "TODO", "trigger": "Peak-event bursts dropped feeds." },
+    "decision": {
+      "question": "Is this worth building?",
+      "options": [],
+      "chose": "Async queuing with exponential backoff.",
+      "rejected": "TODO",
+      "why": "TODO"
+    },
+    "cost": { "engineering": "TODO", "run": "TODO", "timeline": "TODO" },
+    "risk": {
+      "operational": "TODO",
+      "failureModes": ["Feed loss during peak-event bursts"],
+      "mitigations": ["Async queuing", "Exponential backoff"]
+    },
+    "impact": {
+      "metrics": [
+        { "label": "dropped feeds", "value": "0", "baseline": "TODO", "howMeasured": "TODO" },
+        { "label": "parsers operated", "value": "10", "baseline": "TODO", "howMeasured": "TODO" }
+      ],
+      "businessOutcome": "TODO"
+    },
+    "architecture": { "steps": [] },
+    "retro": "TODO",
+    "links": []
+  },
+  {
+    "slug": "banglapapers",
+    "title": "Banglapapers",
+    "category": "AI & LLM",
+    "role": "Software Engineer — design, build, operate",
+    "period": "Apr 2022 – Present",
+    "status": "In production",
+    "oneLiner": "",
+    "stack": ["OpenSearch", "Semantic Search", "Node.js", "AWS"],
+    "problem": { "context": "Aggregating 10+ publisher feeds into one searchable index.", "trigger": "TODO" },
+    "decision": {
+      "question": "Is this worth building?",
+      "options": [],
+      "chose": "TODO",
+      "rejected": "TODO",
+      "why": "TODO"
+    },
+    "cost": { "engineering": "TODO", "run": "TODO", "timeline": "TODO" },
+    "risk": { "operational": "TODO", "failureModes": ["TODO"], "mitigations": ["TODO"] },
+    "impact": {
+      "metrics": [
+        { "label": "retrieval latency", "value": "<100ms", "baseline": "TODO", "howMeasured": "TODO" },
+        { "label": "publisher feeds", "value": "10+", "baseline": "TODO", "howMeasured": "TODO" }
+      ],
+      "businessOutcome": "TODO"
+    },
+    "architecture": { "steps": [] },
+    "retro": "TODO",
+    "links": []
+  }
+]
