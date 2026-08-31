@@ -27,7 +27,9 @@ module.exports = {
         },
         content: {
           surface: '#0e1f3a',
-        }
+        },
+        'todo-amber': '#d29922',
+        rule: '#1e3050',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
