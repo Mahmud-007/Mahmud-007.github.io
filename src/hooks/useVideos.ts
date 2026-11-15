@@ -69,7 +69,7 @@ export function useVideos(): VideosState {
       try {
         const playlist = uploadsPlaylistId(channelId);
         const [itemsRes, statsRes] = await Promise.all([
-          fetch(`${API}/playlistItems?part=snippet&maxResults=12&playlistId=${playlist}&key=${key}`),
+          fetch(`${API}/playlistItems?part=snippet&maxResults=50&playlistId=${playlist}&key=${key}`),
           fetch(`${API}/channels?part=statistics&id=${channelId}&key=${key}`),
         ]);
         const videos = mapPlaylistItems(await itemsRes.json());

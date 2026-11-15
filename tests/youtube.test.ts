@@ -125,3 +125,37 @@ test('mapChannelStats returns null on a bad shape or hidden counts', () => {
   assert.equal(mapChannelStats(null), null);
   assert.equal(mapChannelStats({ items: [{ statistics: { viewCount: 'x' } }] }), null);
 });
+
+// --- choosing between the live feed and the committed fallback -------------------------------
+
+import { resolveVideos, isFeed } from '../src/utils/youtube.ts';
+
+const vid = (id: string) => ({ id, title: `T ${id}`, publishedAt: '2026-01-01T00:00:00+00:00', thumbnail: 't.jpg', url: `u/${id}` });
+
+test('resolveVideos: no channel id means no videos, whatever the fallback holds', () => {
+  assert.deepEqual(resolveVideos('', null, [vid('old')]), []);
+});
+
+test('resolveVideos: a live feed with zero entries means zero videos, not the stale fallback', () => {
+  assert.deepEqual(resolveVideos('UCabc', [], [vid('old')]), []);
+});
+
+test('resolveVideos: a failed fetch (null) uses the fallback', () => {
+  assert.deepEqual(resolveVideos('UCabc', null, [vid('old')]), [vid('old')]);
+});
+
+test('resolveVideos: a live feed wins over the fallback', () => {
+  assert.deepEqual(resolveVideos('UCabc', [vid('new')], [vid('old')]), [vid('new')]);
+});
+
+test('resolveVideos: drops malformed fallback entries instead of passing them on', () => {
+  const broken = [vid('ok'), { id: 'no-title' }, null, { ...vid('x'), title: '' }] as any;
+  assert.deepEqual(resolveVideos('UCabc', null, broken), [vid('ok')]);
+  assert.deepEqual(resolveVideos('UCabc', null, 'not an array' as any), []);
+});
+
+test('isFeed tells a real (possibly empty) feed from an error page', () => {
+  assert.equal(isFeed('<?xml version="1.0"?><feed xmlns="http://www.w3.org/2005/Atom"><title>x</title></feed>'), true);
+  assert.equal(isFeed('<html>error</html>'), false);
+  assert.equal(isFeed(''), false);
+});

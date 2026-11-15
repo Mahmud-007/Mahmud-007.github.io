@@ -8,7 +8,7 @@
         "develop": "gatsby develop",
         "build": "gatsby build",
         "serve": "gatsby serve",
-        "deploy": "gatsby build && gh-pages -d public",
+        "deploy": "gatsby build && npm run check:copy && gh-pages -d public",
         "check:copy": "node scripts/check-copy.mjs"
     },
     "keywords": [],

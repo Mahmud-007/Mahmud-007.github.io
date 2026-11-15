@@ -3,7 +3,7 @@ import type { GatsbyNode } from "gatsby"
 import caseStudies from "./src/data/caseStudies.json"
 import profile from "./src/data/profile.json"
 import fallbackVideos from "./src/data/videos.json"
-import { parseFeed, type VideoLike } from "./src/utils/youtube"
+import { isFeed, parseFeed, resolveVideos, type VideoLike } from "./src/utils/youtube"
 
 type StudyRef = { slug: string; title: string }
 
@@ -41,7 +41,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
   `)
 }
 
-/** Reads the channel's public feed. Throws on anything short of at least one parsed video. */
+/** Reads the channel's public feed. An empty channel returns []; anything that is not a feed throws. */
 async function fetchFeed(channelId: string): Promise<VideoLike[]> {
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), FEED_TIMEOUT_MS)
@@ -50,9 +50,9 @@ async function fetchFeed(channelId: string): Promise<VideoLike[]> {
       signal: controller.signal,
     })
     if (!res.ok) throw new Error(`feed responded ${res.status}`)
-    const videos = parseFeed(await res.text())
-    if (videos.length === 0) throw new Error("feed contained no videos")
-    return videos
+    const xml = await res.text()
+    if (!isFeed(xml)) throw new Error("response was not a feed")
+    return parseFeed(xml)
   } finally {
     clearTimeout(timer)
   }
@@ -69,18 +69,18 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async ({
   reporter,
 }) => {
   const channelId = profile.youtube?.channelId ?? ""
-  let videos = fallbackVideos as VideoLike[]
+  let live: VideoLike[] | null = null
 
   if (channelId) {
     try {
-      videos = await fetchFeed(channelId)
-      reporter.info(`YouTube: ${videos.length} videos from the live feed`)
+      live = await fetchFeed(channelId)
+      reporter.info(`YouTube: ${live.length} videos from the live feed`)
     } catch (error) {
-      reporter.warn(
-        `YouTube: live feed unavailable (${(error as Error).message}); using ${videos.length} videos from src/data/videos.json`
-      )
+      reporter.warn(`YouTube: live feed unavailable (${(error as Error).message}); using src/data/videos.json`)
     }
   }
+
+  const videos = resolveVideos(channelId, live, fallbackVideos as VideoLike[])
 
   videos.forEach((video) => {
     const fields = {

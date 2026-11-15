@@ -100,3 +100,26 @@ export function mapChannelStats(json: unknown): ChannelStatsLike | null {
   if (![subscribers, views, videos].every(Number.isFinite)) return null;
   return { subscribers, views, videos };
 }
+
+/** True for an Atom feed document, even one with no entries. False for error pages and empty bodies. */
+export function isFeed(xml: string): boolean {
+  return typeof xml === 'string' && /<feed[\s>]/.test(xml);
+}
+
+const isVideo = (value: unknown): value is VideoLike =>
+  isObject(value) &&
+  ['id', 'title', 'publishedAt', 'thumbnail', 'url'].every((key) => typeof value[key] === 'string') &&
+  Boolean(value.id) &&
+  Boolean(value.title);
+
+/**
+ * Decides which videos the build publishes.
+ * - no channel id        -> none
+ * - live feed was read   -> exactly what it holds, even if that is nothing
+ * - live fetch failed    -> the committed fallback, minus any malformed entries
+ */
+export function resolveVideos(channelId: string, live: VideoLike[] | null, fallback: VideoLike[]): VideoLike[] {
+  if (!channelId) return [];
+  if (live) return live;
+  return Array.isArray(fallback) ? fallback.filter(isVideo) : [];
+}

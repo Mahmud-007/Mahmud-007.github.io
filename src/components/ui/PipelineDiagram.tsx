@@ -49,7 +49,11 @@ const PipelineDiagram: React.FC<PipelineDiagramProps> = ({ steps, hitRate }) => 
 
   const pattern = React.useMemo(() => hitPattern(hitRate ?? 0), [hitRate]);
   const cacheIndex = steps.findIndex((s) => s.cacheNode);
-  const animate = !reduced && steps.length > 1;
+  // Stay static until mounted: the server cannot know the visitor's motion preference, and the
+  // first client render has to match what the server sent.
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  const animate = mounted && !reduced && steps.length > 1;
   const loop = useRequestLoop(steps.length, cacheIndex, pattern, animate);
 
   if (steps.length === 0) return null;
