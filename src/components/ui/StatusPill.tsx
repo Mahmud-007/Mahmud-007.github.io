@@ -4,22 +4,15 @@ import { cn } from '../../utils/cn';
 interface StatusPillProps {
   status: string;
   tone: 'green' | 'amber';
+  className?: string;
 }
 
-const StatusPill: React.FC<StatusPillProps> = ({ status, tone }) => (
-  <span
-    className={cn(
-      'inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-mono',
-      tone === 'green'
-        ? 'border-status-green/40 text-status-green'
-        : 'border-todo-amber/40 text-todo-amber'
-    )}
-  >
+/** A plain mono fact with a small filled dot. */
+const StatusPill: React.FC<StatusPillProps> = ({ status, tone, className }) => (
+  <span className={cn('inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink', className)}>
     <span
-      className={cn(
-        'w-2 h-2 rounded-full',
-        tone === 'green' ? 'bg-status-green' : 'bg-todo-amber'
-      )}
+      aria-hidden="true"
+      className={cn('w-1.5 h-1.5 rounded-full', tone === 'green' ? 'bg-status-green' : 'bg-todo-amber')}
     />
     {status}
   </span>

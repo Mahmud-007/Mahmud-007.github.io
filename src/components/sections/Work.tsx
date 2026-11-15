@@ -48,7 +48,7 @@ const Work = () => {
               >
                 <div className="flex items-start justify-between gap-3 mb-3">
                   {project.metric &&
-                    (isTodo(project.metric) ? <TodoBadge label="metric TODO" /> : <Tag tone="green">{project.metric}</Tag>)}
+                    (isTodo(project.metric) ? <TodoBadge label="metric TODO" /> : <Tag>{project.metric}</Tag>)}
                   <span className="font-mono text-[10px] uppercase tracking-wider text-slate-light/50 ml-auto">
                     {project.category}
                   </span>

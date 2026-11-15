@@ -1,33 +1,33 @@
 import React from 'react';
-import CountUp from '../ui/CountUp';
 import TodoBadge from '../ui/TodoBadge';
 import { field } from '../../utils/todo';
 import type { Metric } from '../../types';
 
+/** Headline numbers for a story, set large like a pull-quote, divided by rules. */
 const ImpactStrip: React.FC<{ metrics: Metric[] }> = ({ metrics }) => {
   const usable = metrics.filter((m) => field(m.value) !== null);
   if (usable.length === 0) return null;
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 my-8">
+    <dl className="my-8 grid grid-cols-2 sm:grid-cols-3 border-y border-ink divide-x divide-ink/25">
       {usable.map((metric, i) => {
         const value = field(metric.value);
         const baseline = field(metric.baseline);
         return (
-          <div key={`${metric.label}-${i}`} className="rounded-lg border border-navy-700 bg-navy-900/50 p-4">
-            <div className="text-status-green text-2xl font-bold font-mono">
-              {value?.todo ? <TodoBadge /> : <CountUp value={metric.value} />}
-            </div>
-            <div className="text-slate-light text-xs mt-1">{metric.label}</div>
+          <div key={`${metric.label}-${i}`} className="px-4 py-4 first:pl-0">
+            <dd className="font-display text-4xl font-black tracking-tight leading-none m-0">
+              {value?.todo ? <TodoBadge /> : metric.value}
+            </dd>
+            <dt className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">{metric.label}</dt>
             {baseline && (
-              <div className="text-slate-light/50 text-[11px] font-mono mt-2">
+              <div className="mt-1 font-mono text-[11px] text-ink-soft">
                 {baseline.todo ? <TodoBadge label="baseline TODO" /> : `from ${baseline.value}`}
               </div>
             )}
           </div>
         );
       })}
-    </div>
+    </dl>
   );
 };
 
