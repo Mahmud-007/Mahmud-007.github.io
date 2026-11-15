@@ -25,6 +25,15 @@ export interface CaseStudyLink {
   url: string;
 }
 
+export interface PipelineStep {
+  id: string;
+  label: string;
+  does?: string;
+  costs?: string;
+  fails?: string;
+  cacheNode?: boolean;
+}
+
 export interface CaseStudy {
   slug: string;
   title: string;
@@ -33,6 +42,8 @@ export interface CaseStudy {
   period: string;
   status: string;
   oneLiner: string;
+  /** Short front-page headline about what the system does. Falls back to title. */
+  headline?: string;
   stack: string[];
   problem: { context: string; trigger: string };
   decision: {
@@ -45,7 +56,7 @@ export interface CaseStudy {
   cost: { engineering: string; run: string; timeline: string };
   risk: { operational: string; failureModes: string[]; mitigations: string[] };
   impact: { metrics: Metric[]; businessOutcome: string };
-  architecture: { steps: string[] };
+  architecture: { steps: Array<string | PipelineStep> };
   retro: string;
   links: CaseStudyLink[];
 }
@@ -62,13 +73,6 @@ export interface Project {
   status?: string;
 }
 
-export interface Principle {
-  command: string;
-  title: string;
-  body: string;
-  evidence?: string;
-}
-
 export interface Social {
   label: string;
   url: string;
@@ -78,12 +82,11 @@ export interface Social {
 export interface Profile {
   name: string;
   initials: string;
-  tagline: string;
-  intro: string;
   location: string;
   email: string;
   resume: string;
   availability: { status: string; tone: 'green' | 'amber' };
+  youtube: { handle: string; channelId: string };
   socials: Social[];
 }
 
@@ -117,6 +120,22 @@ export interface Certification {
   credentialId: string;
   skills: string[];
   link?: string;
+  /** File name inside src/images/certificates/. Empty or missing renders a text row. */
+  image?: string;
+}
+
+export interface Video {
+  id: string;
+  title: string;
+  publishedAt: string;
+  thumbnail: string;
+  url: string;
+}
+
+export interface ChannelStats {
+  subscribers: number;
+  views: number;
+  videos: number;
 }
 
 export interface GithubLanguage {

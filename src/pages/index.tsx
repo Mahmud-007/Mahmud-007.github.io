@@ -1,29 +1,17 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import Layout from "../components/layout/Layout"
-import Hero from "../components/sections/Hero"
-import Principles from "../components/sections/Principles"
-import Experience from "../components/sections/Experience"
 import Work from "../components/sections/Work"
-import Skills from "../components/sections/Skills"
-import Certifications from "../components/sections/Certifications"
-// import AiWorkflow from "../components/sections/AiWorkflow"
+import Experience from "../components/sections/Experience"
 import Writing from "../components/sections/Writing"
-import Speaking from "../components/sections/Speaking"
 import Contact from "../components/sections/Contact"
 
 const IndexPage: React.FC<PageProps> = () => {
     return (
         <Layout>
-            <Hero />
-            {/* <Principles /> */}
             <Work />
             <Experience />
-            <Skills />
-            <Certifications />
-            {/* <AiWorkflow /> */}
             <Writing />
-            <Speaking />
             <Contact />
         </Layout>
     )
@@ -31,4 +19,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Mahmudur Rahman | Portfolio</title>
+export const Head: HeadFC = () => <title>Mahmudur Rahman</title>
