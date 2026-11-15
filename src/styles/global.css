@@ -1,58 +1,72 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy-900: #0a192f;
-  --color-navy-800: #112240;
-  --color-navy-700: #233554;
-
-  --color-slate-light: #a8b2d1;
-  --color-slate-lightest: #ccd6f6;
-
-  --color-teal: #64ffda;
-
-  --color-orange-soft: #ffaf7b;
+  --color-paper: #f3efe6;
+  --color-paper-dark: #e8e2d4;
+  --color-ink: #1a1814;
+  --color-ink-soft: #5a554c;
+  --color-red: #d7381e;
 
   --color-status-green: #3fb950;
-  --color-content-surface: #0e1f3a;
   --color-todo-amber: #d29922;
-  --color-rule: #1e3050;
 
-  --font-sans: "Inter", sans-serif;
-  --font-mono: "Roboto Mono", monospace;
+  --font-display: "Fraunces", serif;
+  --font-body: "Newsreader", serif;
+  --font-mono: "IBM Plex Mono", monospace;
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-navy-900 text-slate-light font-sans;
+    @apply bg-paper text-ink font-body antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply text-slate-lightest font-bold;
+    @apply font-display text-ink;
+  }
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-red);
+    outline-offset: 2px;
   }
 }
 
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+/* Press-photo treatment: greyscale image with a printed dot screen on top. */
+.halftone {
+  position: relative;
+  isolation: isolate;
+}
+.halftone img {
+  filter: grayscale(1) contrast(1.15);
+}
+.halftone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, var(--color-ink) 1.1px, transparent 1.3px) 0 0 / 5px 5px;
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.cursor-blink {
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-.marquee-track {
-  animation: marquee 40s linear infinite;
-}
-
-.marquee-track:hover {
-  animation-play-state: paused;
+/* Drop cap for the opening paragraph of a long story. */
+.drop-cap::first-letter {
+  font-family: var(--font-display);
+  font-weight: 900;
+  color: var(--color-red);
+  float: left;
+  font-size: 4.2em;
+  line-height: 0.78;
+  padding: 0.08em 0.1em 0 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
-  .cursor-blink { animation: none; }
+  html {
+    scroll-behavior: auto;
+  }
 }
