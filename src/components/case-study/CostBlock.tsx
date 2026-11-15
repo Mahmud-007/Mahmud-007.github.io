@@ -4,9 +4,9 @@ import { field } from '../../utils/todo';
 import type { CaseStudy } from '../../types';
 
 const LABELS: Array<[keyof CaseStudy['cost'], string]> = [
-  ['engineering', 'engineering cost'],
-  ['run', 'run cost'],
-  ['timeline', 'timeline'],
+  ['engineering', 'Engineering'],
+  ['run', 'Running'],
+  ['timeline', 'Timeline'],
 ];
 
 const CostBlock: React.FC<{ cost: CaseStudy['cost'] }> = ({ cost }) => {
@@ -17,16 +17,16 @@ const CostBlock: React.FC<{ cost: CaseStudy['cost'] }> = ({ cost }) => {
   if (rows.length === 0) return null;
 
   return (
-    <div className="grid gap-4 sm:grid-cols-3">
+    <dl className="m-0 grid gap-3">
       {rows.map((row) => (
-        <div key={row.label} className="rounded-lg border border-navy-700 bg-content-surface/70 p-4">
-          <p className="font-mono text-xs text-slate-light/60 mb-2">{row.label}</p>
-          <p className="text-sm text-slate-lightest">
+        <div key={row.label} className="grid sm:grid-cols-[6rem_1fr] gap-x-4 gap-y-0.5 items-baseline">
+          <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft">{row.label}</dt>
+          <dd className="m-0 text-[19px] leading-snug">
             {row.resolved?.todo ? <TodoBadge /> : row.resolved?.value}
-          </p>
+          </dd>
         </div>
       ))}
-    </div>
+    </dl>
   );
 };
 

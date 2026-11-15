@@ -1,16 +1,17 @@
 import React from 'react';
-import Tag from '../ui/Tag';
 import TodoBadge from '../ui/TodoBadge';
+import { cn } from '../../utils/cn';
 import { field } from '../../utils/todo';
 import type { CaseStudy } from '../../types';
-
-const verdictTone = { chosen: 'green', rejected: 'default', considered: 'teal' } as const;
 
 const Cell: React.FC<{ value: string }> = ({ value }) => {
   const resolved = field(value);
   if (!resolved) return null;
   return resolved.todo ? <TodoBadge /> : <>{resolved.value}</>;
 };
+
+const th = 'text-left py-2 pr-4 font-normal font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft';
+const dt = 'font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft';
 
 const DecisionTable: React.FC<{ decision: CaseStudy['decision'] }> = ({ decision }) => {
   const chose = field(decision.chose);
@@ -20,27 +21,38 @@ const DecisionTable: React.FC<{ decision: CaseStudy['decision'] }> = ({ decision
 
   if (!chose && !rejected && !why && options.length === 0) return null;
 
+  const notes: Array<[string, typeof chose]> = [
+    ['Chose', chose],
+    ['Rejected', rejected],
+    ['Why', why],
+  ];
+
   return (
     <div className="space-y-6">
       {options.length > 0 && (
-        <div className="overflow-x-auto rounded-lg border border-navy-700">
-          <table className="w-full text-sm font-mono">
-            <thead className="bg-navy-900/70 text-slate-light/70">
-              <tr>
-                <th className="text-left p-3 font-normal">option</th>
-                <th className="text-left p-3 font-normal">cost</th>
-                <th className="text-left p-3 font-normal">risk</th>
-                <th className="text-left p-3 font-normal">verdict</th>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse border-y border-ink text-[17px] leading-snug">
+            <thead>
+              <tr className="border-b border-ink">
+                <th className={th}>Option</th>
+                <th className={th}>Cost</th>
+                <th className={th}>Risk</th>
+                <th className={th}>Verdict</th>
               </tr>
             </thead>
             <tbody>
               {options.map((option, i) => (
-                <tr key={`${option.name}-${i}`} className="border-t border-navy-700">
-                  <td className="p-3 text-slate-lightest"><Cell value={option.name} /></td>
-                  <td className="p-3 text-slate-light"><Cell value={option.cost} /></td>
-                  <td className="p-3 text-slate-light"><Cell value={option.risk} /></td>
-                  <td className="p-3">
-                    <Tag tone={verdictTone[option.verdict]}>{option.verdict}</Tag>
+                <tr key={`${option.name}-${i}`} className="border-t border-ink/25 align-top">
+                  <td className="py-2.5 pr-4 font-display font-black"><Cell value={option.name} /></td>
+                  <td className="py-2.5 pr-4 text-ink-soft"><Cell value={option.cost} /></td>
+                  <td className="py-2.5 pr-4 text-ink-soft"><Cell value={option.risk} /></td>
+                  <td
+                    className={cn(
+                      'py-2.5 font-mono text-[11px] uppercase tracking-[0.12em]',
+                      option.verdict === 'chosen' ? 'text-red' : 'text-ink-soft'
+                    )}
+                  >
+                    {option.verdict}
                   </td>
                 </tr>
               ))}
@@ -50,24 +62,15 @@ const DecisionTable: React.FC<{ decision: CaseStudy['decision'] }> = ({ decision
       )}
 
       {(chose || rejected || why) && (
-        <dl className="space-y-4 text-sm">
-          {chose && (
-            <div>
-              <dt className="font-mono text-xs text-status-green mb-1">chose</dt>
-              <dd className="text-slate-light">{chose.todo ? <TodoBadge /> : chose.value}</dd>
-            </div>
-          )}
-          {rejected && (
-            <div>
-              <dt className="font-mono text-xs text-slate-light/60 mb-1">rejected</dt>
-              <dd className="text-slate-light">{rejected.todo ? <TodoBadge /> : rejected.value}</dd>
-            </div>
-          )}
-          {why && (
-            <div>
-              <dt className="font-mono text-xs text-teal mb-1">why</dt>
-              <dd className="text-slate-light">{why.todo ? <TodoBadge /> : why.value}</dd>
-            </div>
+        <dl className="m-0 grid gap-3">
+          {notes.map(
+            ([label, value]) =>
+              value && (
+                <div key={label} className="grid sm:grid-cols-[6rem_1fr] gap-x-4 gap-y-0.5 items-baseline">
+                  <dt className={dt}>{label}</dt>
+                  <dd className="m-0 text-[19px] leading-snug">{value.todo ? <TodoBadge /> : value.value}</dd>
+                </div>
+              )
           )}
         </dl>
       )}
