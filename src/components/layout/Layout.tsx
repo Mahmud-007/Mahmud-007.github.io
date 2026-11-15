@@ -19,7 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ children, hidden = [] }) => {
 
   return (
     <div className="min-h-screen lg:grid lg:grid-cols-[320px_minmax(0,1fr)] max-w-[1180px] mx-auto">
-      <div className="px-5 pt-6 pb-4 lg:p-8 lg:border-r lg:border-ink lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto">
+      <div className="px-5 pt-6 pb-4 lg:p-8 lg:border-r lg:border-ink lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto lg:overflow-x-hidden">
         <Masthead hidden={allHidden} />
       </div>
 

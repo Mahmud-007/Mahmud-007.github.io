@@ -16,7 +16,7 @@ const linkCls = 'font-mono text-[11px] uppercase tracking-[0.14em] text-ink hove
 /** The paper's nameplate. Name only: no role and no tagline (design doc, section 3). */
 const Masthead: React.FC<{ hidden?: string[] }> = ({ hidden }) => (
   <header className="flex flex-col gap-4 lg:h-full">
-    <Link to="/" className="block font-display font-black tracking-[-0.035em] leading-[0.88] text-[2.75rem] sm:text-6xl lg:text-[3.4rem] hover:text-red transition-colors">
+    <Link to="/" className="block font-display font-black tracking-[-0.035em] leading-[0.88] text-[2.75rem] sm:text-6xl lg:text-[2.9rem] hover:text-red transition-colors">
       {firstName}
       <br />
       {rest.join(' ')}

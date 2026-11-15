@@ -43,7 +43,9 @@ interface PipelineDiagramProps {
 
 const PipelineDiagram: React.FC<PipelineDiagramProps> = ({ steps, hitRate }) => {
   const reduced = useReducedMotion();
-  const [selected, setSelected] = React.useState<string | null>(null);
+  // Open on the cache step when it has something to say, so the notes are never empty on arrival.
+  const initial = steps.find((s) => s.cacheNode && stepNotes(s, IS_DEV).length > 0)?.id ?? null;
+  const [selected, setSelected] = React.useState<string | null>(initial);
 
   const pattern = React.useMemo(() => hitPattern(hitRate ?? 0), [hitRate]);
   const cacheIndex = steps.findIndex((s) => s.cacheNode);
