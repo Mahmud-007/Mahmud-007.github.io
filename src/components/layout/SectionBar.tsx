@@ -1,0 +1,23 @@
+import React from 'react';
+import { Link } from 'gatsby';
+import { visibleSections } from './sections';
+
+/** Sticky section strip for small screens, where the masthead column is not on screen. */
+const SectionBar: React.FC<{ hidden?: string[] }> = ({ hidden }) => (
+  <nav
+    aria-label="Sections"
+    className="lg:hidden sticky top-0 z-20 bg-paper border-y border-ink overflow-x-auto"
+  >
+    <ul className="flex gap-5 px-5 py-2.5 m-0 list-none whitespace-nowrap">
+      {visibleSections(hidden).map((s) => (
+        <li key={s.id}>
+          <Link to={`/#${s.id}`} className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:text-red">
+            {s.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </nav>
+);
+
+export default SectionBar;

@@ -1,51 +1,33 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import Masthead from './Masthead';
+import SectionBar from './SectionBar';
+import profile from '../../data/profile.json';
 
 interface LayoutProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
+  /** Section ids to leave out of the navigation. */
+  hidden?: string[];
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
-    return (
-        <div className="min-h-screen bg-navy-900 text-slate-light font-sans selection:bg-teal selection:text-navy-900">
-            <nav className="fixed w-full z-50 bg-navy-900/90 backdrop-blur-sm shadow-lg transition-all duration-300">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-20">
-                        <div className="flex-shrink-0">
-                            <Link to="/" className="text-teal font-mono font-bold text-2xl hover:text-teal/80 transition-colors">MR</Link>
-                        </div>
-                        <div className="hidden md:flex flex-1 justify-center items-baseline space-x-6">
-                            {['About', 'Experience', 'Projects', 'Skills', 'Certifications', 'Blog', 'Contact'].map((item) => (
-                                <Link
-                                    key={item}
-                                    to={`#${item.toLowerCase()}`}
-                                    className="text-slate-light hover:text-teal px-3 py-2 rounded-md text-sm font-mono font-medium transition-colors duration-300"
-                                >
-                                    {item}
-                                </Link>
-                            ))}
-                        </div>
-                        <div className="hidden md:block flex-shrink-0">
-                            <a
-                                href="/Mahmudur_Rahman.pdf"
-                                rel="noopener noreferrer"
-                                target='_blank'
-                                className="border border-teal text-teal hover:bg-teal/10 px-4 py-2 rounded-md text-sm font-mono font-medium transition-colors duration-300"
-                            >
-                                Resume
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <main className="pt-20">
-                {children}
-            </main>
-            <footer className="bg-navy-800 py-6 text-center text-slate-light text-sm font-mono">
-                <p>Designed & Built by Mahmudur Rahman</p>
-            </footer>
-        </div>
-    );
-};
+/**
+ * Two columns from `lg` up: the masthead stays put on the left while stories scroll on the right.
+ * Below `lg` the masthead sits on top and a sticky section bar takes over navigation.
+ */
+const Layout: React.FC<LayoutProps> = ({ children, hidden = [] }) => (
+  <div className="min-h-screen lg:grid lg:grid-cols-[320px_minmax(0,1fr)] max-w-[1180px] mx-auto">
+    <div className="px-5 pt-6 pb-4 lg:p-8 lg:border-r lg:border-ink lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto">
+      <Masthead hidden={hidden} />
+    </div>
+
+    <SectionBar hidden={hidden} />
+
+    <div className="min-w-0">
+      <main className="px-5 py-8 lg:px-12 lg:py-10 max-w-3xl">{children}</main>
+      <footer className="px-5 lg:px-12 py-6 border-t border-ink/25 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft">
+        {profile.name} · {new Date().getFullYear()}
+      </footer>
+    </div>
+  </div>
+);
 
 export default Layout;
