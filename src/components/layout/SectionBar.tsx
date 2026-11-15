@@ -6,9 +6,9 @@ import { visibleSections } from './sections';
 const SectionBar: React.FC<{ hidden?: string[] }> = ({ hidden }) => (
   <nav
     aria-label="Sections"
-    className="lg:hidden sticky top-0 z-20 bg-paper border-y border-ink overflow-x-auto"
+    className="lg:hidden sticky top-0 z-20 bg-paper border-y border-ink"
   >
-    <ul className="flex gap-5 px-5 py-2.5 m-0 list-none whitespace-nowrap">
+    <ul className="flex flex-wrap gap-x-5 gap-y-1.5 px-5 py-2.5 m-0 list-none">
       {visibleSections(hidden).map((s) => (
         <li key={s.id}>
           <Link to={`/#${s.id}`} className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:text-red">
