@@ -16,6 +16,7 @@ working, the page quietly keeps the videos from the last build.
 3. Open **APIs & Services → Credentials → Create credentials → API key**.
 4. Click the new key to edit it, then set both restrictions:
    - **Application restrictions → Websites**, and add:
+     - `https://mahmudurrahman.tech/*`
      - `https://mahmud-007.github.io/*`
      - your Netlify address, for example `https://your-site.netlify.app/*`
      - `http://localhost:8000/*`

@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal-brand hub for Mahmudur Rahman: work, products, videos, writing and certificates in one place. Built with Gatsby 5, React 18, TypeScript, and Tailwind CSS 4. The look is "Newsprint, press blue": white newsprint, black ink, one printer's-blue accent, condensed newspaper headlines.
 
-Deployed to GitHub Pages and Netlify. Site URL: https://Mahmud-007.github.io
+Deployed to GitHub Pages and Netlify. Site URL: https://mahmudurrahman.tech (custom domain; `static/CNAME` must stay, or each deploy drops the domain). The old https://mahmud-007.github.io address redirects to it.
 
 Design doc: `docs/superpowers/specs/2026-11-15-newsprint-brand-hub-design.md`
 
