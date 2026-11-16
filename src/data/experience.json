@@ -4,16 +4,73 @@
     "role": "Software Engineer",
     "period": "Apr 2022 – Present",
     "type": "Hybrid",
-    "tags": ["Node.js", "Python", "AWS", "Microservices", "Event-Driven", "ELK", "OpenSearch", "DynamoDB"],
+    "tags": [
+      "Node.js",
+      "Python",
+      "AWS",
+      "Microservices",
+      "Event-Driven",
+      "ELK",
+      "OpenSearch",
+      "DynamoDB"
+    ],
     "highlights": [
-      { "title": "Storylens — event-driven AI backend", "metric": "70% cache hit · 300%+ ROI", "desc": "Transformed articles into visual summaries through an event-driven LLM pipeline; semantic prompt caching drove sub-second p50 responses.", "context": "Bottleneck: every article re-ran the full LLM pipeline. Trade-off: accepted eventual staleness for latency and cost." },
-      { "title": "High-throughput microservices", "metric": "32.4% MAU growth", "desc": "Operated 4 core microservices serving low-latency football content to high-concurrency global traffic under strict production SLAs.", "context": "Owned uptime and latency, not just endpoints." },
-      { "title": "Data-pipeline fault tolerance", "metric": "0 dropped feeds", "desc": "Architected 10 data parsers on the ELK stack across AWS ECS and Lambda.", "context": "Peak-event bursts dropped feeds; async queuing + exponential backoff eliminated the loss." },
-      { "title": "Publisher API integration", "metric": "26+ publishers", "desc": "Managed distributed API integrations and high-volume widget delivery; presented the in-image widget architecture at DMEXCO.", "context": "Multi-tenant integration across international publishers." },
-      { "title": "Banglapapers semantic search", "metric": "<100ms retrieval", "desc": "Architected an AI news platform aggregating 10+ publisher feeds with OpenSearch semantic indexing.", "context": "Tuned indexing for sub-100ms query latency." },
-      { "title": "SocialDesk automation", "metric": "0 dev cycle", "desc": "Engineered an automated content-processing and image-generation pipeline via direct article scraping and workflow execution.", "context": "Removed manual developer cycles from content prep." },
-      { "title": "Widget Builder (internal ops)", "metric": "30m → <2m", "desc": "Built an internal widget-generation engine so non-engineers ship production-ready widgets.", "context": "Cut a repetitive 30-minute manual workflow to under two minutes." },
-      { "title": "Observability dashboard", "metric": "7 core metrics", "desc": "Developed central monitoring aggregating API health, ad delivery, cost insights, and daily operational reports.", "context": "Used logs and metrics to diagnose production behavior." }
+      {
+        "title": "Storylens — event-driven AI backend",
+        "metric": "70% cache hit · 300%+ ROI",
+        "desc": "Transformed articles into visual summaries through an event-driven LLM pipeline; semantic prompt caching drove sub-second p50 responses.",
+        "context": "Bottleneck: every article re-ran the full LLM pipeline. Trade-off: accepted eventual staleness for latency and cost."
+      },
+      {
+        "title": "High-throughput microservices",
+        "metric": "32.4% MAU growth",
+        "desc": "Operated 4 core microservices serving low-latency football content to high-concurrency global traffic under strict production SLAs.",
+        "context": "Owned uptime and latency, not just endpoints."
+      },
+      {
+        "title": "Data-pipeline fault tolerance",
+        "metric": "0 dropped feeds",
+        "desc": "Architected 10 data parsers on the ELK stack across AWS ECS and Lambda.",
+        "context": "Peak-event bursts dropped feeds; async queuing + exponential backoff eliminated the loss."
+      },
+      {
+        "title": "Publisher API integration",
+        "metric": "26+ publishers",
+        "desc": "Managed distributed API integrations and high-volume widget delivery; presented the in-image widget architecture at DMEXCO.",
+        "context": "Multi-tenant integration across international publishers."
+      },
+      {
+        "title": "Banglapapers semantic search",
+        "metric": "<100ms retrieval",
+        "desc": "Architected an AI news platform aggregating 10+ publisher feeds with OpenSearch semantic indexing.",
+        "context": "Tuned indexing for sub-100ms query latency."
+      },
+      {
+        "title": "SocialDesk automation",
+        "metric": "0 dev cycle",
+        "desc": "Engineered an automated content-processing and image-generation pipeline via direct article scraping and workflow execution.",
+        "context": "Removed manual developer cycles from content prep."
+      },
+      {
+        "title": "Widget Builder (internal ops)",
+        "metric": "30m → <2m",
+        "desc": "Built an internal widget-generation engine so non-engineers ship production-ready widgets.",
+        "context": "Cut a repetitive 30-minute manual workflow to under two minutes."
+      },
+      {
+        "title": "Master Dashboard",
+        "metric": "7 departmental metrics",
+        "desc": "Developed central monitoring aggregating API health, ad delivery, cost insights, and daily operational reports.",
+        "context": "Used logs and metrics to diagnose production behavior."
+      },
+      {
+        "title": "First-Party Data",
+        "desc": "System that monitors user behaviour and synchronises data across cost-management and inventory systems, with Google Analytics insights."
+      },
+      {
+        "title": "DMEXCO showcase",
+        "desc": "The in-image widget, a high-volume delivery system integrated across 26+ international publishers, was shown at DMEXCO."
+      }
     ]
   },
   {
@@ -21,9 +78,16 @@
     "role": "Trainee Software Engineer",
     "period": "Oct 2020 – Dec 2020",
     "type": "On-site",
-    "tags": ["PHP", "SQL", "MySQL"],
+    "tags": [
+      "PHP",
+      "SQL",
+      "MySQL"
+    ],
     "highlights": [
-      { "title": "Inquiry System", "desc": "Designed optimized SQL queries across business units and built reporting structures under custom relational schemas." }
+      {
+        "title": "Inquiry System",
+        "desc": "Designed optimized SQL queries across business units and built reporting structures under custom relational schemas."
+      }
     ]
   }
 ]

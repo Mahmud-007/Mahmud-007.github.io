@@ -1,29 +1,24 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import Layout from "../components/Layout"
-import Hero from "../components/Hero"
-import About from "../components/About"
-import Experience from "../components/Experience"
-import Projects from "../components/Projects"
-import Skills from "../components/Skills"
-import Certifications from "../components/Certifications"
-import AiWorkflow from "../components/AiWorkflow"
-import Blog from "../components/Blog"
-import Speaking from "../components/Speaking"
-import Contact from "../components/Contact"
+import Layout from "../components/layout/Layout"
+import Work from "../components/sections/Work"
+import Products from "../components/sections/Products"
+import Videos from "../components/sections/Videos"
+import Writing from "../components/sections/Writing"
+import Certificates from "../components/sections/Certificates"
+import Experience from "../components/sections/Experience"
+import Contact from "../components/sections/Contact"
 
 const IndexPage: React.FC<PageProps> = () => {
     return (
         <Layout>
-            <Hero />
-            <About />
+            <h1 className="sr-only">Mahmudur Rahman</h1>
+            <Work />
+            <Products />
+            <Videos limit={3} />
+            <Writing limit={3} />
+            <Certificates />
             <Experience />
-            <Projects />
-            <Skills />
-            <Certifications />
-            <AiWorkflow />
-            <Blog />
-            <Speaking />
             <Contact />
         </Layout>
     )
@@ -31,4 +26,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Mahmudur Rahman | Portfolio</title>
+export const Head: HeadFC = () => <title>Mahmudur Rahman</title>

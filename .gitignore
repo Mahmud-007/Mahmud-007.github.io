@@ -68,3 +68,7 @@ Thumbs.db
 
 # Superpowers brainstorm sessions
 .superpowers/
+
+# local env files (the YouTube key lives here)
+.env.*
+!.env.example

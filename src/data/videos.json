@@ -1,0 +1,65 @@
+[
+  {
+    "id": "gZN3aPe7RIE",
+    "title": "JavaScript কীভাবে চলে? শহরের গল্পে Call Stack ও Event Loop | বাংলা | JavaScript Runtime City Story",
+    "publishedAt": "2026-09-30T18:05:56+00:00",
+    "thumbnail": "https://i4.ytimg.com/vi/gZN3aPe7RIE/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=gZN3aPe7RIE"
+  },
+  {
+    "id": "dIxg_RWwxuU",
+    "title": "AI That Decides Instead of Talks | Jev Explained",
+    "publishedAt": "2026-09-30T11:43:51+00:00",
+    "thumbnail": "https://i1.ytimg.com/vi/dIxg_RWwxuU/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=dIxg_RWwxuU"
+  },
+  {
+    "id": "5x5FYSyznO4",
+    "title": "What Is AWS Lambda & How Does It Work? Part 2",
+    "publishedAt": "2026-09-12T07:39:36+00:00",
+    "thumbnail": "https://i2.ytimg.com/vi/5x5FYSyznO4/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=5x5FYSyznO4"
+  },
+  {
+    "id": "x-FopUVYIdw",
+    "title": "What Is AWS Lambda & How Does It Work? Part 1",
+    "publishedAt": "2026-09-12T07:33:31+00:00",
+    "thumbnail": "https://i1.ytimg.com/vi/x-FopUVYIdw/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=x-FopUVYIdw"
+  },
+  {
+    "id": "oScWmotCj7o",
+    "title": "What Is Serverless Architecture AWS Lambda Explained",
+    "publishedAt": "2026-09-01T12:11:22+00:00",
+    "thumbnail": "https://i4.ytimg.com/vi/oScWmotCj7o/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=oScWmotCj7o"
+  },
+  {
+    "id": "AhRMuS_zpok",
+    "title": "How OIDC works in a CI/CD pipeline to deploy in AWS",
+    "publishedAt": "2026-08-03T12:59:53+00:00",
+    "thumbnail": "https://i2.ytimg.com/vi/AhRMuS_zpok/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=AhRMuS_zpok"
+  },
+  {
+    "id": "yAZ2B-o8rrs",
+    "title": "Are ACID and Relational Databases Married? 💍",
+    "publishedAt": "2026-07-09T09:39:26+00:00",
+    "thumbnail": "https://i2.ytimg.com/vi/yAZ2B-o8rrs/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=yAZ2B-o8rrs"
+  },
+  {
+    "id": "4RlfzJ_zMMY",
+    "title": "Understanding UDP",
+    "publishedAt": "2026-03-29T03:44:41+00:00",
+    "thumbnail": "https://i1.ytimg.com/vi/4RlfzJ_zMMY/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=4RlfzJ_zMMY"
+  },
+  {
+    "id": "QyNcu9lmGh0",
+    "title": "What Happens When You Enter google.com In Your Browser",
+    "publishedAt": "2026-03-28T10:19:32+00:00",
+    "thumbnail": "https://i2.ytimg.com/vi/QyNcu9lmGh0/hqdefault.jpg",
+    "url": "https://www.youtube.com/watch?v=QyNcu9lmGh0"
+  }
+]

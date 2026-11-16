@@ -1,0 +1,42 @@
+{
+  "name": "Mahmudur Rahman",
+  "initials": "MR",
+  "location": "Dhaka, Bangladesh",
+  "email": "mahmud6799@gmail.com",
+  "resume": "/Mahmudur_Rahman.pdf",
+  "availability": {
+    "status": "Open to work",
+    "tone": "green"
+  },
+  "socials": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/Mahmud-007",
+      "icon": "github"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/rahman-mahmud/",
+      "icon": "linkedin"
+    },
+    {
+      "label": "X",
+      "url": "https://x.com/Rahman007Mahmud",
+      "icon": "x"
+    },
+    {
+      "label": "Medium",
+      "url": "https://medium.com/@mahmud6799",
+      "icon": "medium"
+    },
+    {
+      "label": "YouTube",
+      "url": "https://www.youtube.com/@mahmudurrahman8104",
+      "icon": "youtube"
+    }
+  ],
+  "youtube": {
+    "handle": "@mahmudurrahman8104",
+    "channelId": "UCXYONuojOl6sGPHvupVXx7w"
+  }
+}

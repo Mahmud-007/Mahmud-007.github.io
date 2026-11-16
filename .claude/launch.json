@@ -5,7 +5,8 @@
       "name": "gatsby-develop",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "develop"],
-      "port": 8000
+      "port": 8000,
+      "autoPort": true
     }
   ]
 }
