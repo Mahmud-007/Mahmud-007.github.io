@@ -58,3 +58,13 @@ test('Banglapapers is described as a context engine across newspapers and social
     assert.match(text, /social media/i);
   }
 });
+
+test('certificates are listed AI first, then LangChain, then Docker', () => {
+  assert.deepEqual(json('certifications.json').map((c: any) => c.credentialId), [
+    '2LALOO-CE000961', // AI Evals For Everyone
+    'dak2cdqi5wto', // Building with the Claude API
+    'b68cc13e-f3bc-4830-9d9e-a59d7252b826', // RAG & MCP Fundamentals
+    'atmkkzjsqm', // Introduction to LangChain
+    '7a0dac43-c4d0-4e12-9a96-235a6dbeb63e', // Docker Training Course
+  ]);
+});

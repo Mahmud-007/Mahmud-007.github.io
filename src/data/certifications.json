@@ -1,27 +1,5 @@
 [
   {
-    "title": "Docker Training Course",
-    "issuer": "KodeKloud",
-    "issued": "Oct 2026",
-    "credentialId": "7a0dac43-c4d0-4e12-9a96-235a6dbeb63e",
-    "skills": [
-      "Docker"
-    ],
-    "link": "https://learn.kodekloud.com/certificate/7a0dac43-c4d0-4e12-9a96-235a6dbeb63e",
-    "image": "kodekloud-docker.jpg"
-  },
-  {
-    "title": "Introduction to LangChain - Python",
-    "issuer": "LangChain Academy",
-    "issued": "Aug 2026",
-    "credentialId": "atmkkzjsqm",
-    "skills": [
-      "LangChain"
-    ],
-    "link": "https://academy.langchain.com/certificates/atmkkzjsqm",
-    "image": "langchain-intro-python.png"
-  },
-  {
     "title": "AI Evals For Everyone",
     "issuer": "LevelUp Labs",
     "issued": "Jul 2026",
@@ -56,5 +34,27 @@
     ],
     "link": "https://learn.kodekloud.com/certificate/b68cc13e-f3bc-4830-9d9e-a59d7252b826",
     "image": "kodekloud-rag-mcp.jpg"
+  },
+  {
+    "title": "Introduction to LangChain - Python",
+    "issuer": "LangChain Academy",
+    "issued": "Aug 2026",
+    "credentialId": "atmkkzjsqm",
+    "skills": [
+      "LangChain"
+    ],
+    "link": "https://academy.langchain.com/certificates/atmkkzjsqm",
+    "image": "langchain-intro-python.png"
+  },
+  {
+    "title": "Docker Training Course",
+    "issuer": "KodeKloud",
+    "issued": "Oct 2026",
+    "credentialId": "7a0dac43-c4d0-4e12-9a96-235a6dbeb63e",
+    "skills": [
+      "Docker"
+    ],
+    "link": "https://learn.kodekloud.com/certificate/7a0dac43-c4d0-4e12-9a96-235a6dbeb63e",
+    "image": "kodekloud-docker.jpg"
   }
 ]

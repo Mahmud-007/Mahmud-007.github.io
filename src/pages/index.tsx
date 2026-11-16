@@ -17,7 +17,7 @@ const IndexPage: React.FC<PageProps> = () => {
             <Products />
             <Videos limit={3} />
             <Writing limit={3} />
-            <Certificates limit={3} />
+            <Certificates />
             <Experience />
             <Contact />
         </Layout>

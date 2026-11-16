@@ -10,15 +10,10 @@ interface CertificatesProps {
   limit?: number;
 }
 
-/** "Jun 2026" -> a sortable number. Unreadable dates sort last. */
-const issuedAt = (issued: string) => {
-  const time = Date.parse(`1 ${issued}`);
-  return Number.isNaN(time) ? 0 : time;
-};
-
 const Certificates: React.FC<CertificatesProps> = ({ limit }) => {
   const images = useCertificateImages();
-  const all = [...(certifications as Certification[])].sort((a, b) => issuedAt(b.issued) - issuedAt(a.issued));
+  // Shown in the order of certifications.json, which is curated by hand.
+  const all = certifications as Certification[];
   if (all.length === 0) return null;
 
   const shown = limit ? all.slice(0, limit) : all;
