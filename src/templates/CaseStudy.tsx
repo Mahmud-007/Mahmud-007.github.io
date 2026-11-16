@@ -2,6 +2,7 @@ import React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
 import Layout from '../components/layout/Layout';
 import MoreLink from '../components/ui/MoreLink';
+import { sectionFlag } from '../components/ui/SectionHead';
 import Dateline from '../components/ui/Dateline';
 import Tag from '../components/ui/Tag';
 import TodoBadge from '../components/ui/TodoBadge';
@@ -31,9 +32,9 @@ const Part: React.FC<{ title: string; show: boolean; children: React.ReactNode }
   if (!show) return null;
   return (
     <section className="mt-10">
-        <h2 className="border-t-4 border-ink pt-2 mb-4 font-display text-[28px] font-extrabold leading-none">
-          {title}
-        </h2>
+        <div className="border-b-2 border-ink mb-4">
+          <h2 className={sectionFlag}>{title}</h2>
+        </div>
         {children}
     </section>
   );

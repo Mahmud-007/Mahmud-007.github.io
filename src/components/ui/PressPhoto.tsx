@@ -7,7 +7,11 @@ interface PressPhotoProps {
   className?: string;
 }
 
-/** Portrait printed like a newspaper photo: greyscale, dot screen, hairline border, caption. */
+/**
+ * Portrait printed like a newspaper photo: greyscale, dot screen, hairline border, caption.
+ * Cropped from the top so the bottom edge of the source image (with its watermark) is cut off.
+ * On hover it turns into a blue duotone.
+ */
 const PressPhoto: React.FC<PressPhotoProps> = ({ caption, className }) => (
   <figure className={cn('m-0', className)}>
     <div className="halftone border border-ink bg-paper-dark overflow-hidden">
@@ -16,8 +20,8 @@ const PressPhoto: React.FC<PressPhotoProps> = ({ caption, className }) => (
         alt="Portrait of Mahmudur Rahman"
         placeholder="blurred"
         layout="fullWidth"
-        aspectRatio={4 / 5}
-        transformOptions={{ cropFocus: 'attention' }}
+        aspectRatio={0.92}
+        transformOptions={{ cropFocus: 'north' }}
       />
     </div>
     {caption && (

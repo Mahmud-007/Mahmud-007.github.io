@@ -43,3 +43,18 @@ test('at least three projects have category "Product"', () => {
 test('videos.json fallback exists and is an array', () => {
   assert.ok(Array.isArray(json('videos.json')));
 });
+
+test('Work opens with Storylens, then Banglapapers', () => {
+  const work = json('projects.json').filter((p: any) => p.category !== 'Product').map((p: any) => p.title);
+  assert.deepEqual(work.slice(0, 2), ['Storylens', 'Banglapapers']);
+});
+
+test('Banglapapers is described as a context engine across newspapers and social media', () => {
+  const p = json('projects.json').find((x: any) => x.title === 'Banglapapers');
+  const c = json('caseStudies.json').find((x: any) => x.slug === 'banglapapers');
+  for (const text of [p.summary, c.oneLiner]) {
+    assert.match(text, /context engine/i);
+    assert.match(text, /newspapers/i);
+    assert.match(text, /social media/i);
+  }
+});

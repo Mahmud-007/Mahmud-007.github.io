@@ -27,6 +27,21 @@
     "metric": "70% cache hit · 300%+ ROI"
   },
   {
+    "title": "Banglapapers",
+    "summary": "A context engine for news. It gathers stories from mainstream newspapers, social media and the wider internet, groups reports on the same topic from different sources, and puts the most important and latest news at the top as a short gist. OpenSearch semantic indexing keeps retrieval under 100ms.",
+    "tags": [
+      "OpenSearch",
+      "Semantic Search",
+      "Clustering",
+      "Node.js",
+      "AWS"
+    ],
+    "category": "AI & LLM",
+    "caseStudySlug": "banglapapers",
+    "status": "In production",
+    "metric": "<100ms retrieval"
+  },
+  {
     "title": "Widget Builder",
     "summary": "Internal widget-generation engine so non-engineers ship production-ready widgets without a developer cycle.",
     "tags": [
@@ -53,20 +68,6 @@
     "caseStudySlug": "data-pipeline",
     "status": "In production",
     "metric": "0 dropped feeds"
-  },
-  {
-    "title": "Banglapapers",
-    "summary": "AI news platform aggregating 10+ publisher feeds with OpenSearch semantic indexing, tuned for sub-100ms retrieval.",
-    "tags": [
-      "OpenSearch",
-      "Semantic Search",
-      "Node.js",
-      "AWS"
-    ],
-    "category": "AI & LLM",
-    "caseStudySlug": "banglapapers",
-    "status": "In production",
-    "metric": "<100ms retrieval"
   },
   {
     "title": "Adaptive Restaurant Operations Forecasting Engine",

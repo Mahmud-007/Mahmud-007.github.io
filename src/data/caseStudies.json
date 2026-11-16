@@ -275,15 +275,16 @@
     "role": "Software Engineer",
     "period": "Apr 2022 – Present",
     "status": "In production",
-    "oneLiner": "AI news platform aggregating 10+ publisher feeds with OpenSearch semantic indexing, tuned for sub-100ms retrieval.",
+    "oneLiner": "A context engine for news: stories from mainstream newspapers, social media and the wider internet, grouped by topic and ranked so the most important and latest gist comes first.",
     "stack": [
       "OpenSearch",
       "Semantic Search",
+      "Clustering",
       "Node.js",
       "AWS"
     ],
     "problem": {
-      "context": "Aggregating 10+ publisher feeds into one searchable index.",
+      "context": "The same story is reported by many newspapers and discussed across social media at once. Reading it means visiting each source and working out which version matters and which is newest.",
       "trigger": "TODO"
     },
     "decision": {
@@ -325,7 +326,13 @@
       "businessOutcome": "TODO"
     },
     "architecture": {
-      "steps": []
+      "steps": [
+        "collect from newspapers, social media and the web",
+        "index semantically on OpenSearch",
+        "group reports on the same topic",
+        "rank by importance and recency",
+        "show the gist, with every source behind it"
+      ]
     },
     "retro": "TODO",
     "links": []

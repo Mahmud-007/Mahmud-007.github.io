@@ -58,6 +58,22 @@
   z-index: 1;
 }
 
+/* Hover: printer's-blue duotone. Screen blend turns the blacks blue and keeps the whites. */
+.halftone::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 250ms ease-out;
+  pointer-events: none;
+  z-index: 2;
+}
+.halftone:hover::before {
+  opacity: 0.85;
+}
+
 /* Drop cap for the opening paragraph of a long story. */
 .drop-cap::first-letter {
   font-family: var(--font-display);
