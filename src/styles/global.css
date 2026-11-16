@@ -58,20 +58,18 @@
   z-index: 1;
 }
 
-/* Hover: printer's-blue duotone. Screen blend turns the blacks blue and keeps the whites. */
-.halftone::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--color-accent);
-  mix-blend-mode: screen;
-  opacity: 0;
-  transition: opacity 250ms ease-out;
-  pointer-events: none;
-  z-index: 2;
+/* Hover: the press treatment lifts and the original colour photo shows. */
+.halftone img {
+  transition: filter 250ms ease-out;
 }
-.halftone:hover::before {
-  opacity: 0.85;
+.halftone::after {
+  transition: opacity 250ms ease-out;
+}
+.halftone:hover img {
+  filter: none;
+}
+.halftone:hover::after {
+  opacity: 0;
 }
 
 /* Drop cap for the opening paragraph of a long story. */
