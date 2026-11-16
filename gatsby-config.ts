@@ -3,7 +3,7 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Mahmudur Rahman Portfolio`,
-    siteUrl: `https://Mahmud-007.github.io`,
+    siteUrl: `https://mahmudurrahman.tech`,
     description: `Work, writing, videos and certificates of Mahmudur Rahman.`,
   },
   graphqlTypegen: true,

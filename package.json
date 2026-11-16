@@ -2,7 +2,7 @@
     "name": "mahmud-portfolio",
     "version": "1.0.0",
     "main": "index.js",
-    "homepage": "https://Mahmud-007.github.io",
+    "homepage": "https://mahmudurrahman.tech",
     "scripts": {
         "test": "node --experimental-strip-types --test \"tests/**/*.test.ts\"",
         "develop": "gatsby develop",
