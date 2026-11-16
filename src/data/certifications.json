@@ -4,25 +4,32 @@
     "issuer": "KodeKloud",
     "issued": "Oct 2026",
     "credentialId": "7a0dac43-c4d0-4e12-9a96-235a6dbeb63e",
-    "skills": ["Docker"],
+    "skills": [
+      "Docker"
+    ],
     "link": "https://learn.kodekloud.com/certificate/7a0dac43-c4d0-4e12-9a96-235a6dbeb63e",
-    "image": ""
+    "image": "kodekloud-docker.jpg"
   },
   {
     "title": "Introduction to LangChain - Python",
     "issuer": "LangChain Academy",
     "issued": "Aug 2026",
     "credentialId": "atmkkzjsqm",
-    "skills": ["LangChain"],
+    "skills": [
+      "LangChain"
+    ],
     "link": "https://academy.langchain.com/certificates/atmkkzjsqm",
-    "image": ""
+    "image": "langchain-intro-python.png"
   },
   {
     "title": "AI Evals For Everyone",
     "issuer": "LevelUp Labs",
     "issued": "Jul 2026",
     "credentialId": "2LALOO-CE000961",
-    "skills": ["AI Evals", "AI Agents"],
+    "skills": [
+      "AI Evals",
+      "AI Agents"
+    ],
     "link": "",
     "image": ""
   },
@@ -31,17 +38,23 @@
     "issuer": "Anthropic",
     "issued": "Jun 2026",
     "credentialId": "dak2cdqi5wto",
-    "skills": ["Model Context Protocol (MCP)", "Anthropic Claude"],
+    "skills": [
+      "Model Context Protocol (MCP)",
+      "Anthropic Claude"
+    ],
     "link": "https://verify.skilljar.com/c/dak2cdqi5wto",
-    "image": ""
+    "image": "claude-api.png"
   },
   {
     "title": "RAG & MCP Fundamentals: A Hands-On Crash Course",
     "issuer": "FreeCodeCamp · KodeKloud",
     "issued": "May 2026",
     "credentialId": "b68cc13e-f3bc-4830-9d9e-a59d7252b826",
-    "skills": ["Retrieval-Augmented Generation (RAG)", "Model Context Protocol (MCP)"],
+    "skills": [
+      "Retrieval-Augmented Generation (RAG)",
+      "Model Context Protocol (MCP)"
+    ],
     "link": "https://learn.kodekloud.com/certificate/b68cc13e-f3bc-4830-9d9e-a59d7252b826",
-    "image": ""
+    "image": "kodekloud-rag-mcp.jpg"
   }
 ]
