@@ -27,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children, hidden = [] }) => {
 
       <div className="min-w-0">
         <main className="px-5 py-8 lg:px-12 lg:py-10 max-w-3xl">{children}</main>
-        <footer className="px-5 lg:px-12 py-6 border-t border-ink/25 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft">
+        <footer className="px-5 lg:px-12 py-6 border-t border-ink/25 font-body text-sm text-ink-soft">
           {profile.name} · {new Date().getFullYear()}
         </footer>
       </div>

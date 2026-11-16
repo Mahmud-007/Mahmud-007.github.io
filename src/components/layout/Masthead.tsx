@@ -11,12 +11,12 @@ import type { Profile } from '../../types';
 const me = profile as Profile;
 const [firstName, ...rest] = me.name.split(' ');
 
-const linkCls = 'font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:text-red transition-colors';
+const linkCls = 'font-display text-lg font-bold text-ink hover:text-accent transition-colors';
 
 /** The paper's nameplate. Name only: no role and no tagline (design doc, section 3). */
 const Masthead: React.FC<{ hidden?: string[] }> = ({ hidden }) => (
   <header className="flex flex-col gap-4 lg:h-full">
-    <Link to="/" className="block font-display font-black tracking-[-0.035em] leading-[0.88] text-[2.75rem] sm:text-6xl lg:text-[2.9rem] hover:text-red transition-colors">
+    <Link to="/" className="block font-display font-black leading-[0.88] text-6xl sm:text-7xl lg:text-[4.1rem] hover:text-accent transition-colors">
       {firstName}
       <br />
       {rest.join(' ')}

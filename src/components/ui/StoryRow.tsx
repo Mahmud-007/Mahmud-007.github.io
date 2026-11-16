@@ -22,7 +22,7 @@ const StoryRow: React.FC<StoryRowProps> = ({ title, summary, meta, href, interna
   const body = (
     <>
       <div className="flex items-baseline justify-between gap-6">
-        <h3 className="font-display text-xl sm:text-2xl font-black leading-tight tracking-tight group-hover:text-red transition-colors">
+        <h3 className="font-display text-2xl sm:text-[30px] font-extrabold leading-[1.02] group-hover:text-accent transition-colors">
           {title}
           {href && !internal && <span className="font-mono text-sm font-normal"> ↗</span>}
         </h3>
@@ -40,7 +40,7 @@ const StoryRow: React.FC<StoryRowProps> = ({ title, summary, meta, href, interna
           <p className="mt-1.5 text-[17px] leading-snug text-ink-soft max-w-[62ch]">{summaryField.value}</p>
         ))}
       {shownTags.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-1.5">
+        <div className="mt-3 flex flex-wrap gap-y-0.5">
           {shownTags.map((tag) =>
             isTodo(tag) ? <TodoBadge key={tag} label="tags TODO" /> : <Tag key={tag}>{tag}</Tag>
           )}

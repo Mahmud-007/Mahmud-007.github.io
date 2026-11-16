@@ -9,7 +9,7 @@ interface StatusPillProps {
 
 /** A plain mono fact with a small filled dot. */
 const StatusPill: React.FC<StatusPillProps> = ({ status, tone, className }) => (
-  <span className={cn('inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink', className)}>
+  <span className={cn('inline-flex items-center gap-1.5 font-body text-sm text-ink', className)}>
     <span
       aria-hidden="true"
       className={cn('w-1.5 h-1.5 rounded-full', tone === 'green' ? 'bg-status-green' : 'bg-todo-amber')}

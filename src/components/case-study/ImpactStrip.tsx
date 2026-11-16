@@ -15,10 +15,10 @@ const ImpactStrip: React.FC<{ metrics: Metric[] }> = ({ metrics }) => {
         const baseline = field(metric.baseline);
         return (
           <div key={`${metric.label}-${i}`} className="px-4 py-4 first:pl-0">
-            <dd className="font-display text-4xl font-black tracking-tight leading-none m-0">
+            <dd className="font-display text-4xl font-black leading-none m-0">
               {value?.todo ? <TodoBadge /> : metric.value}
             </dd>
-            <dt className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">{metric.label}</dt>
+            <dt className="mt-2 font-body text-sm text-ink-soft">{metric.label}</dt>
             {baseline && (
               <div className="mt-1 font-mono text-[11px] text-ink-soft">
                 {baseline.todo ? <TodoBadge label="baseline TODO" /> : `from ${baseline.value}`}

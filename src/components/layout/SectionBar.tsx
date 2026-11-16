@@ -11,7 +11,7 @@ const SectionBar: React.FC<{ hidden?: string[] }> = ({ hidden }) => (
     <ul className="flex flex-wrap gap-x-5 gap-y-1.5 px-5 py-2.5 m-0 list-none">
       {visibleSections(hidden).map((s) => (
         <li key={s.id}>
-          <Link to={`/#${s.id}`} className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:text-red">
+          <Link to={`/#${s.id}`} className="font-display text-lg font-bold text-ink hover:text-accent">
             {s.label}
           </Link>
         </li>

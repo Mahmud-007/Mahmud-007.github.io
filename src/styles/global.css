@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #f3efe6;
-  --color-paper-dark: #e8e2d4;
-  --color-ink: #1a1814;
-  --color-ink-soft: #5a554c;
-  --color-red: #d7381e;
+  --color-paper: #fafaf8;
+  --color-paper-dark: #ececea;
+  --color-ink: #111214;
+  --color-ink-soft: #4a4d52;
+  --color-accent: #1d3fd6;
 
   --color-status-green: #3fb950;
   --color-todo-amber: #d29922;
 
-  --font-display: "Fraunces", serif;
-  --font-body: "Newsreader", serif;
+  --font-display: "Archivo Variable", "Archivo", sans-serif;
+  --font-body: "Source Serif 4", serif;
   --font-mono: "IBM Plex Mono", monospace;
 }
 
@@ -25,12 +25,16 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-display text-ink;
   }
+  /* Condensed newspaper headline cut of Archivo, used for every display line. */
+  .font-display, h1, h2, h3, h4, h5, h6 {
+    font-stretch: 62%;
+  }
   ::selection {
     background: var(--color-ink);
     color: var(--color-paper);
   }
   :focus-visible {
-    outline: 2px solid var(--color-red);
+    outline: 2px solid var(--color-accent);
     outline-offset: 2px;
   }
 }
@@ -58,7 +62,7 @@
 .drop-cap::first-letter {
   font-family: var(--font-display);
   font-weight: 900;
-  color: var(--color-red);
+  color: var(--color-accent);
   float: left;
   font-size: 4.2em;
   line-height: 0.78;

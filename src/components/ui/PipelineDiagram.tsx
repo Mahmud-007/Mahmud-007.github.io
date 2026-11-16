@@ -76,7 +76,7 @@ const PipelineDiagram: React.FC<PipelineDiagramProps> = ({ steps, hitRate }) => 
           const live = animate && loop.at === i;
           const nodeCls = cn(
             'relative block w-full md:w-auto text-left md:text-center border px-3 py-2 transition-colors',
-            step.cacheNode ? 'border-red bg-red text-paper' : 'border-ink bg-paper text-ink',
+            step.cacheNode ? 'border-accent bg-accent text-paper' : 'border-ink bg-paper text-ink',
             isSelected && 'outline outline-2 outline-offset-2 outline-ink',
             skipped(i) && 'opacity-30'
           );
@@ -142,7 +142,7 @@ const PipelineDiagram: React.FC<PipelineDiagramProps> = ({ steps, hitRate }) => 
       </ol>
 
       {hitRate !== null && cacheIndex >= 0 && (
-        <p className="mt-3 mb-0 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft flex flex-wrap gap-x-4 gap-y-1">
+        <p className="mt-3 mb-0 font-body text-sm text-ink-soft flex flex-wrap gap-x-4 gap-y-1">
           <span>
             {hits} of {pattern.length} requests answered from cache
           </span>
@@ -159,7 +159,7 @@ const PipelineDiagram: React.FC<PipelineDiagramProps> = ({ steps, hitRate }) => 
           <dl className="m-0 grid gap-2">
             {notes.map((note) => (
               <div key={note.label} className="grid grid-cols-[4.5rem_1fr] gap-2 items-baseline">
-                <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft">{note.label}</dt>
+                <dt className="font-body text-sm text-ink-soft">{note.label}</dt>
                 <dd className="m-0 text-[17px] leading-snug">
                   {isTodo(note.text) ? <TodoBadge label={`${note.label.toLowerCase()} TODO`} /> : note.text}
                 </dd>

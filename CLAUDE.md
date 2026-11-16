@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal-brand hub for Mahmudur Rahman: work, products, videos, writing and certificates in one place. Built with Gatsby 5, React 18, TypeScript, and Tailwind CSS 4. The look is "Newsprint": paper background, ink text, one red accent, serif headlines.
+Personal-brand hub for Mahmudur Rahman: work, products, videos, writing and certificates in one place. Built with Gatsby 5, React 18, TypeScript, and Tailwind CSS 4. The look is "Newsprint, press blue": white newsprint, black ink, one printer's-blue accent, condensed newspaper headlines.
 
 Deployed to GitHub Pages and Netlify. Site URL: https://Mahmud-007.github.io
 
@@ -75,7 +75,7 @@ Add an entry to `certifications.json`. To show the certificate itself, put the i
 ## Styling
 
 - Tailwind CSS 4 via `@tailwindcss/postcss`. Tokens live in the `@theme` block of `src/styles/global.css`; `tailwind.config.js` mirrors them.
-- Colours: `paper`, `paper-dark`, `ink`, `ink-soft`, `red`. One red element per screenful; red is never a large background.
-- Fonts (loaded in `gatsby-browser.tsx` via `@fontsource`): Fraunces (`font-display`), Newsreader (`font-body`), IBM Plex Mono (`font-mono`).
+- Colours: `paper` #fafaf8, `paper-dark`, `ink` #111214, `ink-soft`, `accent` #1d3fd6 (printer's blue). One accent element per screenful; never a large background. No cream and no orange: they read as AI-generated.
+- Fonts (loaded in `gatsby-browser.tsx` via `@fontsource`): Archivo variable at 62% width (`font-display`, condensed headlines), Source Serif 4 (`font-body`), IBM Plex Mono (`font-mono`, numbers only). No spaced-out uppercase mono labels.
 - Rules and columns separate content. No rounded cards, no drop shadows. Light theme only.
-- Motion uses `framer-motion` and always respects `prefers-reduced-motion`.
+- No scroll fade-ins. The pipeline diagram is the only animated element, and it respects `prefers-reduced-motion`.

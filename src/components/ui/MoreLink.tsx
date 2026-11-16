@@ -11,7 +11,7 @@ interface MoreLinkProps {
 }
 
 const base =
-  'font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:text-red transition-colors whitespace-nowrap';
+  'font-display text-base font-bold text-ink hover:text-accent transition-colors whitespace-nowrap';
 
 /** Small mono link with an arrow. Internal paths use Gatsby's router. */
 const MoreLink: React.FC<MoreLinkProps> = ({ label, to, className, arrow = true }) =>

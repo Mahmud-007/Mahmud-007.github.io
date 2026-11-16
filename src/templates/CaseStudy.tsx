@@ -5,7 +5,6 @@ import MoreLink from '../components/ui/MoreLink';
 import Dateline from '../components/ui/Dateline';
 import Tag from '../components/ui/Tag';
 import TodoBadge from '../components/ui/TodoBadge';
-import Reveal from '../components/ui/Reveal';
 import ImpactStrip from '../components/case-study/ImpactStrip';
 import DecisionTable from '../components/case-study/DecisionTable';
 import CostBlock from '../components/case-study/CostBlock';
@@ -31,14 +30,12 @@ interface CaseStudyContext {
 const Part: React.FC<{ title: string; show: boolean; children: React.ReactNode }> = ({ title, show, children }) => {
   if (!show) return null;
   return (
-    <Reveal>
-      <section className="mt-10">
-        <h2 className="border-t-2 border-ink pt-2 mb-4 font-mono text-xs font-medium uppercase tracking-[0.18em]">
+    <section className="mt-10">
+        <h2 className="border-t-4 border-ink pt-2 mb-4 font-display text-[28px] font-extrabold leading-none">
           {title}
         </h2>
         {children}
-      </section>
-    </Reveal>
+    </section>
   );
 };
 
@@ -74,15 +71,15 @@ const CaseStudyPage: React.FC<PageProps<object, CaseStudyContext>> = ({ pageCont
       <article className="pb-12">
         <MoreLink label="← All work" to="/#work" arrow={false} />
 
-        <Dateline items={dateline} className="mt-6 text-red" />
-        <h1 className="mt-3 font-display font-black tracking-[-0.03em] leading-[0.95] text-4xl sm:text-5xl lg:text-6xl">
+        <Dateline items={dateline} className="mt-6 text-accent" />
+        <h1 className="mt-3 font-display font-black leading-[0.95] text-4xl sm:text-5xl lg:text-6xl">
           {study.headline ?? study.title}
         </h1>
         {standfirst && !standfirst.todo && (
           <p className="mt-4 mb-0 text-xl leading-snug italic text-ink-soft max-w-[58ch]">{standfirst.value}</p>
         )}
         {stack.length > 0 && (
-          <div className="mt-5 flex flex-wrap gap-1.5">
+          <div className="mt-5 flex flex-wrap gap-y-0.5">
             {stack.map((s) => (
               <Tag key={s}>{s}</Tag>
             ))}

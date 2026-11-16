@@ -21,7 +21,7 @@ const PressPhoto: React.FC<PressPhotoProps> = ({ caption, className }) => (
       />
     </div>
     {caption && (
-      <figcaption className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-soft">
+      <figcaption className="mt-1.5 font-body text-sm text-ink-soft">
         {caption}
       </figcaption>
     )}

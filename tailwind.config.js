@@ -9,15 +9,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        paper: { DEFAULT: '#f3efe6', dark: '#e8e2d4' },
-        ink: { DEFAULT: '#1a1814', soft: '#5a554c' },
-        red: { DEFAULT: '#d7381e' },
+        paper: { DEFAULT: '#fafaf8', dark: '#ececea' },
+        ink: { DEFAULT: '#111214', soft: '#4a4d52' },
+        accent: { DEFAULT: '#1d3fd6' },
         status: { green: '#3fb950' },
         'todo-amber': '#d29922',
       },
       fontFamily: {
-        display: ['Fraunces', 'serif'],
-        body: ['Newsreader', 'serif'],
+        display: ['"Archivo Variable"', 'Archivo', 'sans-serif'],
+        body: ['"Source Serif 4"', 'serif'],
         mono: ['"IBM Plex Mono"', 'monospace'],
       },
     },

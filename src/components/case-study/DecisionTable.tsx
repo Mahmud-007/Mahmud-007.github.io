@@ -10,8 +10,8 @@ const Cell: React.FC<{ value: string }> = ({ value }) => {
   return resolved.todo ? <TodoBadge /> : <>{resolved.value}</>;
 };
 
-const th = 'text-left py-2 pr-4 font-normal font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft';
-const dt = 'font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft';
+const th = 'text-left py-2 pr-4 font-normal font-body text-sm text-ink-soft';
+const dt = 'font-body text-sm text-ink-soft';
 
 const DecisionTable: React.FC<{ decision: CaseStudy['decision'] }> = ({ decision }) => {
   const chose = field(decision.chose);
@@ -48,8 +48,8 @@ const DecisionTable: React.FC<{ decision: CaseStudy['decision'] }> = ({ decision
                   <td className="py-2.5 pr-4 text-ink-soft"><Cell value={option.risk} /></td>
                   <td
                     className={cn(
-                      'py-2.5 font-mono text-[11px] uppercase tracking-[0.12em]',
-                      option.verdict === 'chosen' ? 'text-red' : 'text-ink-soft'
+                      'py-2.5 font-body text-sm',
+                      option.verdict === 'chosen' ? 'text-accent' : 'text-ink-soft'
                     )}
                   >
                     {option.verdict}

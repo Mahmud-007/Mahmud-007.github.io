@@ -4,14 +4,14 @@ import profile from '../../data/profile.json';
 import type { Profile } from '../../types';
 
 const me = profile as Profile;
-const linkCls = 'font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:text-red transition-colors';
+const linkCls = 'font-display text-lg font-bold text-ink hover:text-accent transition-colors';
 
 const Contact = () => (
   <section className="pb-12">
     <SectionHead id="contact" title="Contact" />
     <a
       href={`mailto:${me.email}`}
-      className="block mt-5 font-display font-black tracking-[-0.03em] leading-none text-3xl sm:text-5xl break-all hover:text-red transition-colors"
+      className="block mt-5 font-display font-black leading-none text-3xl sm:text-5xl break-all hover:text-accent transition-colors"
     >
       {me.email}
     </a>

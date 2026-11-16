@@ -27,7 +27,7 @@ const Videos: React.FC<VideosProps> = ({ limit, full = false }) => {
         more={full || videos.length <= shown.length ? undefined : { label: 'All videos', to: '/videos/' }}
       />
       {stats && (
-        <p className="m-0 mt-3 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">
+        <p className="m-0 mt-3 font-body text-sm text-ink-soft">
           {count(stats.subscribers)} subscribers · {count(stats.videos)} videos
         </p>
       )}

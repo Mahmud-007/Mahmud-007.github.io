@@ -19,11 +19,11 @@ const VideoCard: React.FC<{ video: Video }> = ({ video }) => {
           className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-300"
         />
       </div>
-      <h3 className="mt-2.5 font-display text-lg font-black leading-tight tracking-tight group-hover:text-red transition-colors">
+      <h3 className="mt-2.5 font-display text-lg font-black leading-tight group-hover:text-accent transition-colors">
         {video.title}
       </h3>
       {date && (
-        <p className="m-0 mt-1 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">{date}</p>
+        <p className="m-0 mt-1 font-body text-sm text-ink-soft">{date}</p>
       )}
     </a>
   );

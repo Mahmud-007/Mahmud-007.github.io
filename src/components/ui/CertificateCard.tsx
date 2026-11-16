@@ -22,10 +22,10 @@ const CertificateCard: React.FC<CertificateCardProps> = ({ cert, image }) => {
       <div className="border border-ink bg-paper-dark">
         <GatsbyImage image={image} alt={`Certificate: ${cert.title}`} className="block aspect-[4/3]" objectFit="contain" />
       </div>
-      <h3 className="mt-2.5 font-display text-lg font-black leading-tight tracking-tight group-hover:text-red transition-colors">
+      <h3 className="mt-2.5 font-display text-lg font-black leading-tight group-hover:text-accent transition-colors">
         {cert.title}
       </h3>
-      <p className="m-0 mt-1 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-soft">{meta}</p>
+      <p className="m-0 mt-1 font-body text-sm text-ink-soft">{meta}</p>
     </>
   );
 
