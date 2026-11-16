@@ -45,3 +45,15 @@ test('hitPattern handles the extremes', () => {
   assert.deepEqual(hitPattern(0), Array(10).fill(false));
   assert.deepEqual(hitPattern(1), Array(10).fill(true));
 });
+
+import { hasStepNotes } from '../src/utils/pipeline.ts';
+
+test('hasStepNotes is true when any step has a real note', () => {
+  assert.equal(hasStepNotes([{ id: 'a', label: 'a' }, { id: 'b', label: 'b', does: 'Looks up prompt' }], false), true);
+});
+
+test('hasStepNotes is false for plain labels, TODO-only notes in production, or no steps', () => {
+  assert.equal(hasStepNotes(normalizeSteps(['ingest', 'embed']), false), false);
+  assert.equal(hasStepNotes([{ id: 'a', label: 'a', does: 'TODO' }], false), false);
+  assert.equal(hasStepNotes([], false), false);
+});

@@ -11,7 +11,9 @@ import DecisionTable from '../components/case-study/DecisionTable';
 import CostBlock from '../components/case-study/CostBlock';
 import RiskBlock from '../components/case-study/RiskBlock';
 import ArchFlow from '../components/case-study/ArchFlow';
-import { allTodo, field, isTodo, listField } from '../utils/todo';
+import PipelineDiagram from '../components/ui/PipelineDiagram';
+import { hasStepNotes, normalizeSteps, parseRate } from '../utils/pipeline';
+import { IS_DEV, allTodo, field, isTodo, listField } from '../utils/todo';
 import type { CaseStudy } from '../types';
 
 interface StudyRef {
@@ -54,6 +56,10 @@ const CaseStudyPage: React.FC<PageProps<object, CaseStudyContext>> = ({ pageCont
   const dateline = [study.category, study.period, study.status].filter((v) => v && !isTodo(v));
   const measured = study.impact.metrics.filter((m) => field(m.howMeasured) || field(m.baseline));
   const standfirst = field(study.oneLiner);
+  const steps = normalizeSteps(study.architecture.steps);
+  const interactive = hasStepNotes(steps, IS_DEV);
+  const cacheMetric = study.impact.metrics.find((m) => /cache/i.test(m.label));
+  const hitRate = cacheMetric ? parseRate(cacheMetric.value) : null;
 
   const decisionEmpty =
     allTodo(study.decision.chose, study.decision.rejected, study.decision.why) &&
@@ -90,6 +96,10 @@ const CaseStudyPage: React.FC<PageProps<object, CaseStudyContext>> = ({ pageCont
           <Text value={study.problem.trigger} className={prose} />
         </Part>
 
+        <Part title={interactive ? 'How it works' : 'Architecture'} show={steps.length > 0}>
+          {interactive ? <PipelineDiagram steps={steps} hitRate={hitRate} /> : <ArchFlow steps={steps} />}
+        </Part>
+
         <Part title="The decision" show={!decisionEmpty}>
           <DecisionTable decision={study.decision} />
         </Part>
@@ -122,9 +132,6 @@ const CaseStudyPage: React.FC<PageProps<object, CaseStudyContext>> = ({ pageCont
           <Text value={study.impact.businessOutcome} className={prose} />
         </Part>
 
-        <Part title="Architecture" show={study.architecture.steps.length > 0}>
-          <ArchFlow steps={study.architecture.steps} />
-        </Part>
 
         <Part title="What I'd do differently" show={!allTodo(study.retro)}>
           <Text value={study.retro} className={prose} />

@@ -1,7 +1,6 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import Layout from "../components/layout/Layout"
-import LeadStory from "../components/sections/LeadStory"
 import Work from "../components/sections/Work"
 import Products from "../components/sections/Products"
 import Videos from "../components/sections/Videos"
@@ -13,7 +12,7 @@ import Contact from "../components/sections/Contact"
 const IndexPage: React.FC<PageProps> = () => {
     return (
         <Layout>
-            <LeadStory />
+            <h1 className="sr-only">Mahmudur Rahman</h1>
             <Work />
             <Products />
             <Videos limit={3} />

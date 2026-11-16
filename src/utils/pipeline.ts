@@ -64,3 +64,8 @@ export function hitPattern(rate: number, length = 10): boolean[] {
   }
   return pattern;
 }
+
+/** True when at least one step has something a reader can open. Decides diagram versus plain list. */
+export function hasStepNotes(steps: StepLike[], showTodo: boolean): boolean {
+  return steps.some((step) => stepNotes(step, showTodo).length > 0);
+}

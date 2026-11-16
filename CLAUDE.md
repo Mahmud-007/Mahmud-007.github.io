@@ -38,7 +38,7 @@ The work is the headline. The site never labels its owner.
 
 Pages:
 
-- `src/pages/index.tsx` — Front page: LeadStory, Work, Products, Videos, Writing, Certificates, Experience, Contact
+- `src/pages/index.tsx` — Front page: Work, Products, Videos, Writing, Certificates, Experience, Contact
 - `src/templates/CaseStudy.tsx` — `/work/<slug>/`, one per entry in `caseStudies.json` (created in `gatsby-node.ts`)
 - `src/pages/videos.tsx`, `writing.tsx`, `certificates.tsx` — full lists
 
@@ -53,7 +53,7 @@ Data (`src/data/`) is the content contract; components do not hardcode content:
 
 - `profile.json` — name, location, availability, socials, YouTube handle and channel id
 - `projects.json` — rows for Work and Products (`category: "Product"` goes to Products)
-- `caseStudies.json` — deep content for `/work/<slug>/`. Storylens `architecture.steps` drives the lead-story diagram.
+- `caseStudies.json` — deep content for `/work/<slug>/`. Steps written as objects with `does`/`costs`/`fails` notes render as the interactive pipeline diagram ("How it works") on that case study; plain strings render as a numbered list.
 - `experience.json`, `articles.json`, `certifications.json`
 - `videos.json` — committed fallback snapshot of the YouTube feed
 
